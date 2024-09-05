@@ -1,0 +1,145 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+      {
+          "type": "Feature",
+          "properties": {
+              "name": "Karavali Beach Festival",
+              "description": "A vibrant festival celebrating the local culture with music, dance, and food.",
+              "category": "Event",
+              "date": "2024-10-10",
+              "time": "18:00"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [74.827150, 12.849210]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "name": "Mangalore Food Expo",
+              "description": "An expo showcasing the best of Mangalore's cuisine.",
+              "category": "Event",
+              "date": "2024-10-15",
+              "time": "12:00"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [74.8422293, 12.8678808]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "name": "St. Aloysius Chapel Art Exhibition",
+              "description": "An art exhibition featuring local artists held at the historic St. Aloysius Chapel.",
+              "category": "Event",
+              "date": "2024-10-20",
+              "time": "10:00"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [74.8414, 12.8696]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "name": "Kadri Manjunath Temple Cultural Night",
+              "description": "A cultural night with performances and traditional music at Kadri Manjunath Temple.",
+              "category": "Event",
+              "date": "2024-10-25",
+              "time": "19:00"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [74.8554969, 12.8857549]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "name": "Pilikula Nisargadhama Wildlife Week",
+              "description": "A week-long event focusing on wildlife conservation and education at Pilikula Nisargadhama.",
+              "category": "Event",
+              "date": "2024-11-01",
+              "time": "09:00"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [74.89559, 12.931365]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "name": "Someshwara Beach Sports Event",
+              "description": "A sports event with beach volleyball, surfing, and other activities at Someshwara Beach.",
+              "category": "Event",
+              "date": "2024-11-05",
+              "time": "14:00"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [74.848056, 12.794444]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "name": "Mangaladevi Temple Festival",
+              "description": "A grand festival with processions and rituals at Mangaladevi Temple.",
+              "category": "Event",
+              "date": "2024-11-10",
+              "time": "17:00"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [74.845585, 12.849162]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "name": "Panambur Beach Music Festival",
+              "description": "A music festival featuring local and international artists at Panambur Beach.",
+              "category": "Event",
+              "date": "2024-11-15",
+              "time": "19:00"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [74.804414, 12.937083]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "name": "Kudroli Gokarnath Temple Fair",
+              "description": "A traditional fair with stalls, food, and performances at Kudroli Gokarnath Temple.",
+              "category": "Event",
+              "date": "2024-11-20",
+              "time": "16:00"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [74.8314, 12.8759]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "name": "Tannirbhavi Beach Kite Festival",
+              "description": "A colorful kite festival held at Tannirbhavi Beach.",
+              "category": "Event",
+              "date": "2024-11-25",
+              "time": "10:00"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [74.814067, 12.8913559]
+          }
+      }
+  ]
+}

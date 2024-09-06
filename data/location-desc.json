@@ -1,0 +1,158 @@
+{
+    "locations": [
+        {
+            "name": "Karavali Beach",
+            "category": "beaches",
+            "description": "A popular beach with beautiful sands.",
+            "img": "karavali_beach.jpg",
+            "coordinates": [74.827150, 12.849210]
+        },
+        {
+            "name": "Someshwara Beach",
+            "category": "beaches",
+            "description": "Known for its serene environment.",
+            "img": "someshwara_beach.jpg",
+            "coordinates": [74.848056, 12.794444]
+        },
+        {
+            "name": "Panambur Beach",
+            "category": "beaches",
+            "description": "A bustling beach with many activities.",
+            "img": "panambur_beach.jpg",
+            "coordinates": [74.804414, 12.937083]
+        },
+        {
+            "name": "Tannirbhavi Beach",
+            "category": "beaches",
+            "description": "A quieter beach ideal for relaxation.",
+            "img": "tannirbhavi_beach.jpg",
+            "coordinates": [74.814067, 12.8913559]
+        },
+        {
+            "name": "Malpe Beach",
+            "category": "beaches",
+            "description": "Famous for its picturesque views.",
+            "img": "malpe_beach.jpg",
+            "coordinates": [74.69799538519477, 13.361821460697946]
+        },
+        {
+            "name": "Kaup Beach",
+            "category": "beaches",
+            "description": "A scenic beach with a lighthouse.",
+            "img": "kaup_beach.jpg",
+            "coordinates": [74.73823758987315, 13.222325263162618]
+        },
+        {
+            "name": "Murudeshwara",
+            "category": "historical",
+            "description": "Famous for its towering statue of Lord Shiva.",
+            "img": "murudeshwara.jpg",
+            "coordinates": [74.4914, 14.0947]
+        },
+        {
+            "name": "Mangalore Fort",
+            "category": "historical",
+            "description": "A fort with historical significance.",
+            "img": "mangalore_fort.jpg",
+            "coordinates": [74.8422293, 12.8678808]
+        },
+        {
+            "name": "St. Aloysius Chapel",
+            "category": "historical",
+            "description": "Known for its beautiful murals.",
+            "img": "st_aloysius_chapel.jpg",
+            "coordinates": [74.8414, 12.8696]
+        },
+        {
+            "name": "Kadri Manjunath Temple",
+            "category": "historical",
+            "description": "An ancient temple with architectural beauty.",
+            "img": "kadri_manjunath_temple.jpg",
+            "coordinates": [74.8554969, 12.8857549]
+        },
+        {
+            "name": "Pilikula Nisargadhama",
+            "category": "zoos",
+            "description": "A wildlife park and nature reserve.",
+            "img": "pilikula_nisargadhama.jpg",
+            "coordinates": [74.89559, 12.931365]
+        },
+        {
+            "name": "Mangaladevi Temple",
+            "category": "historical",
+            "description": "An ancient temple known for its historical importance.",
+            "img": "mangaladevi_temple.jpg",
+            "coordinates": [74.845585, 12.849162]
+        },
+        {
+            "name": "Kudroli Gokarnath Temple",
+            "category": "historical",
+            "description": "A prominent temple in Mangalore.",
+            "img": "kudroli_gokarnath_temple.jpg",
+            "coordinates": [74.8314, 12.8759]
+        },
+        {
+            "name": "Udupi Sri Krishna Temple",
+            "category": "historical",
+            "description": "A famous temple in Udupi known for its Krishna deity.",
+            "img": "udupi_sri_krishna_temple.jpg",
+            "coordinates": [74.7519958, 13.3411861]
+        },
+        {
+            "name": "Karkala Jain Temples",
+            "category": "historical",
+            "description": "Temples known for their Jain architecture.",
+            "img": "karkala_jain_temples.jpg",
+            "coordinates": [74.9951861, 13.2145414]
+        },
+        {
+            "name": "Gokarna Beach",
+            "category": "beaches",
+            "description": "A serene beach with spiritual significance.",
+            "img": "gokarna_beach.jpg",
+            "coordinates": [74.3184418, 14.5439629]
+        },
+        {
+            "name": "Udupi",
+            "category": "historical",
+            "description": "A town with rich historical and cultural heritage.",
+            "img": "udupi.jpg",
+            "coordinates": [74.747753, 13.341099]
+        },
+        {
+            "name": "Jog Falls",
+            "category": "falls",
+            "description": "One of the highest waterfalls in India.",
+            "img": "jog_falls.jpg",
+            "coordinates": [74.8090216, 14.2241765]
+        },
+        {
+            "name": "Kudremukh National Park",
+            "category": "natural",
+            "description": "A park known for its biodiversity.",
+            "img": "kudremukh_national_park.jpg",
+            "coordinates": [75.1250, 13.2800]
+        },
+        {
+            "name": "Chikmagalur Coffee Estates",
+            "category": "natural",
+            "description": "Famous for its coffee plantations and scenic beauty.",
+            "img": "chikmagalur_coffee_estates.jpg",
+            "coordinates": [75.7744, 13.3180]
+        },
+        {
+            "name": "Coorg Abbey Falls",
+            "category": "falls",
+            "description": "A picturesque waterfall in Coorg.",
+            "img": "coorg_abbey_falls.jpg",
+            "coordinates": [75.7811, 12.3814]
+        },
+        {
+            "name": "St. Mary's Island",
+            "category": "natural",
+            "description": "An island known for its unique geological formations.",
+            "img": "st_marys_island.jpg",
+            "coordinates": [74.6735, 13.3795]
+        }
+    ]
+}

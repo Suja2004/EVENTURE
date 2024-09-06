@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var map = L.map('map').setView([15.3173, 75.7139], 7); 
+    var map = L.map('map').setView([13.3411861, 74.7519958], 10); 
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -10,19 +10,115 @@ document.addEventListener('DOMContentLoaded', function() {
     var eventLayer; 
     var eventsData; 
 
+    fetch('data/location-desc.json')
+    .then(response => response.json())
+    .then(data => {
+        const locations = data.locations;
+        const locationCards = document.getElementById('locationCards');
+
+        document.querySelectorAll('.category-icons button').forEach(button => {
+            button.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+                loadLocationCards(category, locations);
+                updateMap(category, locations);
+            });
+        });
+
+        function loadLocationCards(category, locations) {
+            locationCards.innerHTML = ''; 
+            const filteredLocations = locations.filter(location => location.category === category);
+        
+            filteredLocations.forEach(location => {
+                const card = document.createElement('div');
+                card.classList.add('location-card');
+        
+                const img = document.createElement('img');
+                img.src = `images/${location.img}`;
+                img.alt = `${location.name}`;
+                
+                img.onerror = function() {
+                    img.style.display = 'none'; 
+                    const placeholder = document.createElement('div');
+                    placeholder.className = 'placeholder';
+                    placeholder.textContent = `${location.name}`;
+                    card.appendChild(placeholder);
+
+                };
+        
+                card.appendChild(img);
+        
+                const info = document.createElement('div');
+                info.classList.add('location-info');
+                info.innerHTML = `
+                    <h4>${location.name}</h4>
+                    <p>${location.description}</p>
+                `;
+                card.appendChild(info);
+                card.addEventListener('click', function() {
+                    if (location.coordinates) {
+                        const lat = location.coordinates[1];
+                        const lng = location.coordinates[0];
+                        const latlng = [lat, lng];
+                        
+                        map.setView(latlng, 15); 
+        
+                        L.marker(latlng).addTo(map)
+                            .bindPopup(`<h3>${location.name}</h3>
+                                `)
+                            .openPopup();
+                    } else {
+                        console.error(`Coordinates are missing for ${location.name}`);
+                    }
+                });
+                locationCards.appendChild(card);
+            });
+        
+            // Show the cards container
+            locationCards.classList.add('expanded');
+        }
+
+        function updateMap(category, locations) {
+            if (locationLayer) {
+                map.removeLayer(locationLayer);
+            }
+            const filteredLocations = locations.filter(location => location.category === category);
+
+            locationLayer = L.geoJSON({
+                type: "FeatureCollection",
+                features: filteredLocations.map(loc => ({
+                    type: "Feature",
+                    properties: {
+                        name: loc.name,
+                        category: loc.category
+                    },
+                    geometry: {
+                        type: "Point",
+                        coordinates: [loc.geometry.coordinates[1], loc.geometry.coordinates[0]] 
+                    }
+                }))
+            }).addTo(map);
+        }
+    })
+    .catch(error => {
+        console.error("Error loading location data:", error);
+        alert("Unable to load location data.");
+    });
+
+
+
     // Load GeoJSON data from external file
     fetch('data/locations.json')
         .then(response => response.json())
         .then(data => {
             locationData = data;
 
-            // Load event data
             fetch('data/events.json')
                 .then(response => response.json())
                 .then(data => {
                     eventsData = data;
 
                     function updateMap(category) {
+                        
                         if (locationLayer) {
                             locationLayer.clearLayers();
                         }
@@ -38,7 +134,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         }, {
                             pointToLayer: function (feature, latlng) {
                                 var marker = L.marker(latlng)
-                                    .bindPopup(`<h3>${feature.properties.name}</h3><p>Category: ${feature.properties.category}</p>`)
+                                    .bindPopup(`<h3>${feature.properties.name}</h3>
+                                        `)
                                     .on('click', function() {
                                         map.setView(latlng, 15); 
                                     });
@@ -46,22 +143,18 @@ document.addEventListener('DOMContentLoaded', function() {
                             }
                         }).addTo(map);
 
-                        // Adjust map view if necessary
                         if (filteredData.length > 0) {
                             map.fitBounds(L.geoJSON(filteredData).getBounds());
                         }
 
-                        // Add event pins if there are displayed location pins
                         if (filteredData.length > 0) {
                             addEventPins(filteredData);
                         }
                     }
 
-                    // Function to add event pins
                     function addEventPins(locations) {
                         var eventMarkers = [];
 
-                        // Get coordinates from displayed location pins
                         var locationBounds = L.geoJSON(locations).getBounds();
                         var locationCenter = locationBounds.getCenter();
                         var radius = locationBounds.getNorthEast().distanceTo(locationBounds.getSouthWest()) / 2;
@@ -103,7 +196,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         }).addTo(map);
                     }
 
-                    // Initialize map with no locations
                     updateMap('none');
 
                     // Handle category button clicks
@@ -138,7 +230,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 return L.marker(latlng)
                                     .bindPopup(`<h3>${feature.properties.name}</h3><p>Category: ${feature.properties.category}</p>`)
                                     .on('click', function() {
-                                        map.setView(latlng, 15); // Zoom to the pin
+                                        map.setView(latlng, 15);
                                     });
                             }
                         }).addTo(map);

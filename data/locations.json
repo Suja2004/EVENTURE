@@ -88,6 +88,20 @@
         {
             "type": "Feature",
             "properties": {
+                "name": "Murudeshwara",
+                "category": "historical"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    74.4914,
+                    14.0947
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "name": "Mangalore Fort",
                 "category": "historical"
             },
@@ -131,7 +145,7 @@
             "type": "Feature",
             "properties": {
                 "name": "Pilikula Nisargadhama",
-                "category": "zoo"
+                "category": "zoos"
             },
             "geometry": {
                 "type": "Point",
@@ -229,7 +243,7 @@
             "type": "Feature",
             "properties": {
                 "name": "Jog Falls",
-                "category": "natural"
+                "category": "falls"
             },
             "geometry": {
                 "type": "Point",
@@ -242,14 +256,14 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "Hampi Ruins",
-                "category": "historical"
+                "name": "Kudremukh National Park",
+                "category": "natural"
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    76.4610201,
-                    15.3358
+                    75.1250,
+                    13.2800
                 ]
             }
         },
@@ -271,7 +285,7 @@
             "type": "Feature",
             "properties": {
                 "name": "Coorg Abbey Falls",
-                "category": "natural"
+                "category": "falls"
             },
             "geometry": {
                 "type": "Point",
@@ -284,77 +298,17 @@
         {
             "type": "Feature",
             "properties": {
-                "name": "Kabini River",
+                "name": "St. Mary's Island",
                 "category": "natural"
             },
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    76.4025,
-                    12.3415
-                ]
-            }
-        },
-            {
-            "type": "Feature",
-            "properties": {
-                "name": "Pilikula Nisargadhama",
-                "category": "zoos"
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    74.89559,
-                    12.931365
-                ]
-            }
-        },
-        
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "The Leela Palace",
-                "category": "hotels"
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    77.6125,
-                    12.9614
-                ]
-            }
-        },
-        
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "Olive Bar & Kitchen",
-                "category": "restaurants"
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    77.6125,
-                    12.9614
-                ]
-            }
-        },
-       
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "MTR",
-                "category": "restaurants"
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    77.6072,
-                    12.9640
+                    74.6735,
+                    13.3795
                 ]
             }
         }
         
-       
     ]
 }

@@ -17,29 +17,30 @@
     <div id="sidebar">
         <div class="category-icons">
             <div class="tooltip">
-                <button data-category="historical">
+                <button data-category="historical" id="historical">
                     <i class="fa-solid fa-gopuram"></i>
                 </button>
                 <span class="tooltiptext">Historical</span>
             </div>
             <div class="tooltip">
-                <button data-category="beaches">
+                <button data-category="beaches" id="beaches">
                     <i class="fa-solid fa-person-swimming"></i>
                 </button>
                 <span class="tooltiptext">Beaches</span>
             </div>
             <div class="tooltip">
-                <button data-category="zoos"><i class="fa-solid fa-paw"></i></button>
+                <button data-category="zoos" id="zoos">
+                    <i class="fa-solid fa-paw"></i></button>
                 <span class="tooltiptext">Zoos</span>
             </div>
             <div class="tooltip">
-                <button data-category="natural">
+                <button data-category="natural" id="natural">
                     <i class="fa-solid fa-mountain"></i>
                 </button>
                 <span class="tooltiptext">Natural</span>
             </div>
             <div class="tooltip">
-                <button data-category="falls">
+                <button data-category="falls" id="falls">
                     <i class="fa-solid fa-water" style="rotate: 90deg;"></i>
                 </button>
                 <span class="tooltiptext">Water Falls</span>
@@ -47,9 +48,10 @@
         </div>
     </div>
     
-    <div id="locationCards"></div> 
-
-    <button class="resetMapBtn" id="resetMapBtn">Reset</button>
+    <div id="locationCards">
+    </div> 
+    
+    <button class="resetMapBtn" id="resetMapBtn"><i class="fa-solid fa-arrow-rotate-left"></i></button>
 
     <div id="map">
         <div class="search-box">

@@ -109,6 +109,12 @@ header img {
     border: none;
 }
 
+.highlighted {
+    color: #ffffff;
+    background-color: #3a72db; 
+    border-color: #3a72db; 
+    box-shadow: 0 0 0 2px rgba(58, 114, 219, 0.5); 
+}
 
 .category-icons button:active {
     color: #ffffff;
@@ -119,7 +125,7 @@ header img {
 .category-icons button:focus {
     outline: none; 
     box-shadow: 0 0 0 2px rgba(58, 114, 219, 0.5); 
-}
+} 
 
 .gps-btn {
     position: absolute;
@@ -149,7 +155,7 @@ header img {
     color: white;
     position: absolute;
     bottom: 7rem;
-    right: 2.6rem;
+    right: 3.1rem;
     background-color: #007bff;
     color: white;
     border: none;
@@ -187,10 +193,9 @@ header img {
 #locationCards {
     display: none;
     width: 250px;
-    height: 100%;
+    max-height: 535px;
     background-color: #fff;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-    overflow-y: hidden; 
     overflow-x: hidden;
     position: absolute;
     left: 105px;
@@ -201,12 +206,6 @@ header img {
     border: 1px solid #ddd;
     border-radius: 1rem;
     background: #f9f9f9;
-}
-
-#locationCards.expanded {
-    display: block;
-    overflow-y: auto; 
-    height: calc(100% - 70px);
 }
 
 .location-card {

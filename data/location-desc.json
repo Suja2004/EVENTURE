@@ -1,158 +1,245 @@
 {
-    "locations": [
+    "type": "FeatureCollection",
+    "features": [
         {
-            "name": "Karavali Beach",
-            "category": "beaches",
-            "description": "A popular beach with beautiful sands.",
-            "img": "karavali_beach.jpg",
-            "coordinates": [74.827150, 12.849210]
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [74.827150, 12.849210]
+            },
+            "properties": {
+                "name": "Karavali Beach",
+                "category": "beaches",
+                "description": "A popular beach with beautiful sands and vibrant local culture.",
+                "img": "karavali_beach.png",
+                "address": "Karavali Beach Road, Mangalore, Karnataka, India",
+                "contact": "+91 123 456 7890",
+                "openingHours": "6:00 AM - 7:00 PM"
+            }
         },
         {
-            "name": "Someshwara Beach",
-            "category": "beaches",
-            "description": "Known for its serene environment.",
-            "img": "someshwara_beach.jpg",
-            "coordinates": [74.848056, 12.794444]
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [74.848056, 12.794444]
+            },
+            "properties": {
+                "name": "Someshwara Beach",
+                "category": "beaches",
+                "description": "Known for its serene environment and stunning sunset views.",
+                "img": "someshwara_beach.png",
+                "address": "Someshwara Beach, Mangalore, Karnataka, India",
+                "contact": "+91 234 567 8901",
+                "openingHours": "6:00 AM - 6:00 PM"
+            }
         },
         {
-            "name": "Panambur Beach",
-            "category": "beaches",
-            "description": "A bustling beach with many activities.",
-            "img": "panambur_beach.jpg",
-            "coordinates": [74.804414, 12.937083]
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [74.804414, 12.937083]
+            },
+            "properties": {
+                "name": "Panambur Beach",
+                "category": "beaches",
+                "description": "A bustling beach with many activities and lively local events.",
+                "img": "panambur_beach.png",
+                "address": "Panambur Beach Road, Mangalore, Karnataka, India",
+                "contact": "+91 345 678 9012",
+                "openingHours": "6:00 AM - 8:00 PM"
+            }
         },
         {
-            "name": "Tannirbhavi Beach",
-            "category": "beaches",
-            "description": "A quieter beach ideal for relaxation.",
-            "img": "tannirbhavi_beach.jpg",
-            "coordinates": [74.814067, 12.8913559]
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [74.814067, 12.8913559]
+            },
+            "properties": {
+                "name": "Tannirbhavi Beach",
+                "category": "beaches",
+                "description": "A quieter beach ideal for relaxation and unwinding away from the crowds.",
+                "img": "tannirbhavi_beach.png",
+                "address": "Tannirbhavi, Mangalore, Karnataka, India",
+                "contact": "+91 456 789 0123",
+                "openingHours": "6:00 AM - 6:30 PM"
+            }
         },
         {
-            "name": "Malpe Beach",
-            "category": "beaches",
-            "description": "Famous for its picturesque views.",
-            "img": "malpe_beach.jpg",
-            "coordinates": [74.69799538519477, 13.361821460697946]
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [74.697995, 13.361821]
+            },
+            "properties": {
+                "name": "Malpe Beach",
+                "category": "beaches",
+                "description": "Famous for its picturesque views and water sports activities.",
+                "img": "malpe_beach.png",
+                "address": "Malpe Beach, Udupi, Karnataka, India",
+                "contact": "+91 567 890 1234",
+                "openingHours": "6:00 AM - 7:00 PM"
+            }
         },
         {
-            "name": "Kaup Beach",
-            "category": "beaches",
-            "description": "A scenic beach with a lighthouse.",
-            "img": "kaup_beach.jpg",
-            "coordinates": [74.73823758987315, 13.222325263162618]
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [74.738237, 13.222325]
+            },
+            "properties": {
+                "name": "Kaup Beach",
+                "category": "beaches",
+                "description": "A scenic beach with a historic lighthouse and panoramic views.",
+                "img": "kaup_beach.png",
+                "address": "Kaup Beach, Udupi, Karnataka, India",
+                "contact": "+91 678 901 2345",
+                "openingHours": "6:00 AM - 6:00 PM"
+            }
         },
         {
-            "name": "Murudeshwara",
-            "category": "historical",
-            "description": "Famous for its towering statue of Lord Shiva.",
-            "img": "murudeshwara.jpg",
-            "coordinates": [74.4914, 14.0947]
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [74.4914, 14.0947]
+            },
+            "properties": {
+                "name": "Murudeshwara",
+                "category": "historical",
+                "description": "Famous for its towering statue of Lord Shiva and a beautiful temple complex.",
+                "img": "murudeshwara.png",
+                "address": "Murudeshwara, Bhatkal, Karnataka, India",
+                "contact": "+91 789 012 3456",
+                "openingHours": "6:00 AM - 8:00 PM"
+            }
         },
         {
-            "name": "Mangalore Fort",
-            "category": "historical",
-            "description": "A fort with historical significance.",
-            "img": "mangalore_fort.jpg",
-            "coordinates": [74.8422293, 12.8678808]
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [74.8422293, 12.8678808]
+            },
+            "properties": {
+                "name": "Mangalore Fort",
+                "category": "historical",
+                "description": "A fort with historical significance and a great view of the city.",
+                "img": "mangalore_fort.png",
+                "address": "Mangalore Fort, Mangalore, Karnataka, India",
+                "contact": "+91 890 123 4567",
+                "openingHours": "8:00 AM - 5:00 PM"
+            }
         },
         {
-            "name": "St. Aloysius Chapel",
-            "category": "historical",
-            "description": "Known for its beautiful murals.",
-            "img": "st_aloysius_chapel.jpg",
-            "coordinates": [74.8414, 12.8696]
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [74.8414, 12.8696]
+            },
+            "properties": {
+                "name": "St. Aloysius Chapel",
+                "category": "historical",
+                "description": "Known for its beautiful murals and intricate artwork.",
+                "img": "st_aloysius_chapel.png",
+                "address": "St. Aloysius College Campus, Mangalore, Karnataka, India",
+                "contact": "+91 901 234 5678",
+                "openingHours": "7:00 AM - 7:00 PM"
+            }
         },
         {
-            "name": "Kadri Manjunath Temple",
-            "category": "historical",
-            "description": "An ancient temple with architectural beauty.",
-            "img": "kadri_manjunath_temple.jpg",
-            "coordinates": [74.8554969, 12.8857549]
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [74.8554969, 12.8857549]
+            },
+            "properties": {
+                "name": "Kadri Manjunath Temple",
+                "category": "historical",
+                "description": "An ancient temple renowned for its architectural beauty and religious significance.",
+                "img": "kadri_manjunath_temple.png",
+                "address": "Kadri, Mangalore, Karnataka, India",
+                "contact": "+91 012 345 6789",
+                "openingHours": "6:00 AM - 8:00 PM"
+            }
         },
         {
-            "name": "Pilikula Nisargadhama",
-            "category": "zoos",
-            "description": "A wildlife park and nature reserve.",
-            "img": "pilikula_nisargadhama.jpg",
-            "coordinates": [74.89559, 12.931365]
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [74.89559, 12.931365]
+            },
+            "properties": {
+                "name": "Pilikula Nisargadhama",
+                "category": "zoos",
+                "description": "A wildlife park and nature reserve with diverse flora and fauna.",
+                "img": "pilikula_nisargadhama.png",
+                "address": "Pilikula, Mangalore, Karnataka, India",
+                "contact": "+91 123 456 7890",
+                "openingHours": "9:00 AM - 5:00 PM"
+            }
         },
         {
-            "name": "Mangaladevi Temple",
-            "category": "historical",
-            "description": "An ancient temple known for its historical importance.",
-            "img": "mangaladevi_temple.jpg",
-            "coordinates": [74.845585, 12.849162]
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [74.845585, 12.849162]
+            },
+            "properties": {
+                "name": "Mangaladevi Temple",
+                "category": "historical",
+                "description": "An ancient temple known for its historical importance and spiritual ambiance.",
+                "img": "mangaladevi_temple.png",
+                "address": "Mangaladevi Temple Road, Mangalore, Karnataka, India",
+                "contact": "+91 234 567 8901",
+                "openingHours": "6:00 AM - 8:00 PM"
+            }
         },
         {
-            "name": "Kudroli Gokarnath Temple",
-            "category": "historical",
-            "description": "A prominent temple in Mangalore.",
-            "img": "kudroli_gokarnath_temple.jpg",
-            "coordinates": [74.8314, 12.8759]
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [74.8314, 12.8759]
+            },
+            "properties": {
+                "name": "Kudroli Gokarnath Temple",
+                "category": "historical",
+                "description": "A prominent temple in Mangalore known for its vibrant festivals and cultural activities.",
+                "img": "kudroli_gokarnath_temple.png",
+                "address": "Kudroli, Mangalore, Karnataka, India",
+                "contact": "+91 345 678 9012",
+                "openingHours": "6:00 AM - 8:00 PM"
+            }
         },
         {
-            "name": "Udupi Sri Krishna Temple",
-            "category": "historical",
-            "description": "A famous temple in Udupi known for its Krishna deity.",
-            "img": "udupi_sri_krishna_temple.jpg",
-            "coordinates": [74.7519958, 13.3411861]
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [74.7519958, 13.3411861]
+            },
+            "properties": {
+                "name": "Udupi Sri Krishna Temple",
+                "category": "historical",
+                "description": "A famous temple in Udupi, known for its Krishna idol and traditional cuisine.",
+                "img": "udupi_sri_krishna_temple.png",
+                "address": "Udupi, Karnataka, India",
+                "contact": "+91 456 789 0123",
+                "openingHours": "5:00 AM - 9:00 PM"
+            }
         },
         {
-            "name": "Karkala Jain Temples",
-            "category": "historical",
-            "description": "Temples known for their Jain architecture.",
-            "img": "karkala_jain_temples.jpg",
-            "coordinates": [74.9951861, 13.2145414]
-        },
-        {
-            "name": "Gokarna Beach",
-            "category": "beaches",
-            "description": "A serene beach with spiritual significance.",
-            "img": "gokarna_beach.jpg",
-            "coordinates": [74.3184418, 14.5439629]
-        },
-        {
-            "name": "Udupi",
-            "category": "historical",
-            "description": "A town with rich historical and cultural heritage.",
-            "img": "udupi.jpg",
-            "coordinates": [74.747753, 13.341099]
-        },
-        {
-            "name": "Jog Falls",
-            "category": "falls",
-            "description": "One of the highest waterfalls in India.",
-            "img": "jog_falls.jpg",
-            "coordinates": [74.8090216, 14.2241765]
-        },
-        {
-            "name": "Kudremukh National Park",
-            "category": "natural",
-            "description": "A park known for its biodiversity.",
-            "img": "kudremukh_national_park.jpg",
-            "coordinates": [75.1250, 13.2800]
-        },
-        {
-            "name": "Chikmagalur Coffee Estates",
-            "category": "natural",
-            "description": "Famous for its coffee plantations and scenic beauty.",
-            "img": "chikmagalur_coffee_estates.jpg",
-            "coordinates": [75.7744, 13.3180]
-        },
-        {
-            "name": "Coorg Abbey Falls",
-            "category": "falls",
-            "description": "A picturesque waterfall in Coorg.",
-            "img": "coorg_abbey_falls.jpg",
-            "coordinates": [75.7811, 12.3814]
-        },
-        {
-            "name": "St. Mary's Island",
-            "category": "natural",
-            "description": "An island known for its unique geological formations.",
-            "img": "st_marys_island.jpg",
-            "coordinates": [74.6735, 13.3795]
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [74.817188, 13.272396]
+            },
+            "properties": {
+                "name": "Gokarna Beach",
+                "category": "beaches",
+                "description": "A serene beach ideal for yoga and meditation with a scenic backdrop.",
+                "img": "gokarna_beach.png",
+                "address": "Gokarna, Karnataka, India",
+                "contact": "+91 567 890 1234",
+                "openingHours": "6:00 AM - 6:00 PM"
+            }
         }
     ]
 }

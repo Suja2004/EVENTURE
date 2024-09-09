@@ -308,7 +308,7 @@ border-radius: .5rem;
 
     #sidebar {
         position: absolute;
-        width: 340px;
+        width: 100%;
         bottom: 0;
         padding: .5rem;
         overflow-y: auto;
@@ -333,8 +333,8 @@ border-radius: .5rem;
     #locationCards {
         flex-direction: row;
         position: absolute;
-        top: 390px;
-        width: 330px;
+        top: 320px;
+        width: 100%;
         height: 150px;
         grid-row: 2;
         overflow-x: auto;
@@ -351,12 +351,11 @@ border-radius: .5rem;
     }
 
     #locationDetails {
-        width: 330px;
+        width: 462px;
         height: 370px;
         position: absolute;
-        top: 170px;
+        top: 90px;
         grid-row: 1;
-        overflow-x: hidden;
     }
 
     .gps-btn {
@@ -375,4 +374,17 @@ border-radius: .5rem;
    .leaflet-left{
     top: 10%;
    }
+}
+
+@media screen and (orientation:landscape) {
+    body {
+        transform: rotate(90deg);
+        transform-origin: left top;
+        width: 100vh;
+        height: 100vw;
+        overflow-x: hidden;
+        position: absolute;
+        top: 100%;
+        left: 0;
+    }
 }

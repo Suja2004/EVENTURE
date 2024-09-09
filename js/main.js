@@ -1,21 +1,27 @@
-
 document.addEventListener('DOMContentLoaded', function () {
+    
     var map = L.map('map').setView([13.3411861, 74.7519958], 10);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap contributors'
     }).addTo(map);
 
+    var compass = L.control.compass({
+        autoActive: true,   
+        showDigit: true,  
+        angleOffset: 0,  
+        position: 'topleft'
+    }).addTo(map);
 
     var locationLayer;
     var locationData;
     var eventLayer;
     var eventsData;
     let currentDestination = null;
+    let routeVisible = true;
 
     function showLocationDetails(location) {
-        locationDetails.innerHTML = '<button id="closeDetailsButton"><i class="fa-solid fa-x"></i></button><button id="routeButton">Show Route</button>';
-        console.log(location);
+        locationDetails.innerHTML = '<button id="closeDetailsButton"><i class="fa-solid fa-x"></i></button><button id="routeButton">Show Route</button><button id="toggle-route-btn">Navigate</button>';
 
         // Create and append the heading element
         const headingElement = document.createElement('h2');
@@ -63,11 +69,14 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('routeButton').addEventListener('click', function () {
             if (currentDestination) {
                 displayRouteToDestination(currentDestination.lat, currentDestination.lng);
+                document.getElementById('toggle-route-btn').style.display = 'block';
             } else {
                 alert("Destination coordinates are not set.");
             }
         });
-
+        document.getElementById('toggle-route-btn').addEventListener('click', function () {
+            toggleRouteVisibility();
+        });
         // Close button functionality
         document.getElementById('closeDetailsButton').addEventListener('click', function () {
             locationDetails.style.display = 'none';
@@ -77,23 +86,23 @@ document.addEventListener('DOMContentLoaded', function () {
     function loadLocationCards(category, locations) {
         locationCards.innerHTML = '';
         var filteredLocations = locations.features.filter(feature => category === 'all' || feature.properties.category === category);
-    
+
         // Clear existing markers if needed
         if (window.currentMarkers) {
             window.currentMarkers.forEach(marker => marker.remove());
         }
-    
+
         // Store markers in an array
         window.currentMarkers = [];
-    
+
         filteredLocations.forEach(location => {
             const card = document.createElement('div');
             card.classList.add('location-card');
-    
+
             const img = document.createElement('img');
             img.src = `images/${location.properties.img}`;
             img.alt = `${location.properties.name}`;
-    
+
             img.onerror = function () {
                 img.style.display = 'none';
                 const placeholder = document.createElement('div');
@@ -101,9 +110,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 placeholder.textContent = 'Image not available';
                 card.appendChild(placeholder);
             };
-    
+
             card.appendChild(img);
-    
+
             const info = document.createElement('div');
             info.classList.add('location-info');
             info.innerHTML = `
@@ -111,17 +120,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 <p>${location.properties.description}</p>
             `;
             card.appendChild(info);
-    
+
             card.addEventListener('click', function () {
                 // Set the map view to the selected location
                 if (location.geometry.coordinates) {
                     const lat = location.geometry.coordinates[1];
                     const lng = location.geometry.coordinates[0];
                     const latlng = [lat, lng];
-    
-                    map.setView(latlng, 15); // Center map on location
-                    showLocationDetails(location); // Show location details
-    
+
+                    map.setView(latlng, 15);
+                    showLocationDetails(location);
+
                     // Add marker for the location
                     const marker = L.marker(latlng).addTo(map)
                         .bindPopup(`<h3>${location.properties.name}</h3>`)
@@ -129,18 +138,18 @@ document.addEventListener('DOMContentLoaded', function () {
                             map.setView(latlng, 15);
                             showLocationDetails(location);
                         });
-                    
+
                     // Store the marker
                     window.currentMarkers.push(marker);
                 } else {
                     console.error(`Coordinates are missing for ${location.properties.name}`);
                 }
             });
-    
+
             locationCards.appendChild(card);
         });
     }
-    
+
     let routeControl = null;
 
     function displayRouteToDestination(destLat, destLng) {
@@ -154,7 +163,13 @@ document.addEventListener('DOMContentLoaded', function () {
             navigator.geolocation.getCurrentPosition(function (position) {
                 const sourceLat = position.coords.latitude;
                 const sourceLng = position.coords.longitude;
-                map.setView([sourceLat, sourceLng], 10);
+
+                // Center the map to the current location first
+
+                // Add marker for the current location
+                L.marker([sourceLat, sourceLng]).addTo(map)
+                    .bindPopup("You are here")
+                    .openPopup();
 
                 // Clear previous route if exists
                 if (routeControl) {
@@ -162,22 +177,15 @@ document.addEventListener('DOMContentLoaded', function () {
                     routeControl = null;
                 }
 
+                // Add routing control to display route to destination
                 routeControl = L.Routing.control({
                     waypoints: [
                         L.latLng(sourceLat, sourceLng),
                         L.latLng(destLat, destLng)
-                    ],
-                    routeWhileDragging: true,
-                    showAlternatives: true, 
-                    fitSelectedRoutes: true, 
-                    plan: new L.Routing.Plan([
-                        L.latLng(sourceLat, sourceLng),
-                        L.latLng(destLat, destLng)
-                    ], {
-                        createMarker: function () { return null; } 
-                    }),
-                    routeLine: L.Routing.line,
+                    ]
                 }).addTo(map);
+                CenterToMe(position.coords.latitude, position.coords.longitude);
+
             }, function (error) {
                 console.error("Error fetching location:", error);
                 alert("Unable to retrieve your location.");
@@ -187,14 +195,22 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function toggleRouteVisibility(visible) {
-        if (routeControl) {
-            routeControl.getContainer().style.display = visible ? 'block' : 'none';
+    function CenterToMe(sourceLat, sourceLng) {
+        map.setView([sourceLat, sourceLng], 15);
+
+    }
+
+    function toggleRouteVisibility() {
+        const routeContainer = document.querySelector('.leaflet-routing-container');
+        
+        if (routeContainer.style.display === 'block') {
+            routeContainer.style.display = 'none'; 
+        } else {
+            routeContainer.style.display = 'block'; 
         }
     }
     
-    toggleRouteVisibility(false);
-    
+
     fetch('data/location-desc.json')
         .then(response => response.json())
         .then(data => {

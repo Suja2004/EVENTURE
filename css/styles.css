@@ -288,17 +288,19 @@ header img {
     text-align: center;
 }
 
-.leaflet-routing-container {
-    background-color: rgba(255, 255, 255, 0.8); 
-    max-width: 300px; 
-    max-height: 300px;
-    overflow-y: auto;
-    margin: 10px; 
-    border-radius: 5px;
-}
 
 .leaflet-routing-container {
-    position: absolute;
-    top: 10px; 
-    left: 10px; 
+    display: none;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.8);
+    overflow-y: auto;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    width: 400px;
+    height: 250px;
+}
+
+#toggle-route-btn{
+    display: none;
 }

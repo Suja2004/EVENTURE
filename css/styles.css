@@ -29,15 +29,21 @@ header img {
 }
 
 #sidebar {
-    width: 70px;
+    width: 100px;
     background-color: #fff;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-    padding: 1rem;
+    /* padding: 1rem; */
     z-index: 999;
-    height: 100%;
     overflow-y: auto;
+    overflow-x: hidden;
     border-radius: 1rem;
     margin-top: 91px;
+}
+
+.category-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #map {
@@ -70,11 +76,6 @@ header img {
     border-radius: 4px;
 }
 
-.category-icons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
 .tooltip {
     position: relative;
@@ -147,7 +148,7 @@ header img {
     font-size: 24px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     cursor: pointer;
-    z-index: 1000;
+    z-index: 900;
 }
 
 .gps-btn:hover {
@@ -167,7 +168,7 @@ header img {
     padding: 1rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     cursor: pointer;
-    z-index: 1000;
+    z-index: 900;
 }
 
 .resetMapBtn:hover {
@@ -195,12 +196,20 @@ header img {
     display: none;
 }
 
+.main-container {
+    margin-top: 90px;
+    display: flex;
+}
+
+
 #locationCards {
     display: none;
+    flex-direction: column;
     width: 250px;
-    max-height: 570px;
+    height: 570px;
     background-color: #fff;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
     overflow-x: hidden;
     z-index: 999;
     transition: height 0.5s ease-in-out;
@@ -211,6 +220,7 @@ header img {
 }
 
 .location-card {
+    width: 100%;
     border-bottom: 1px solid #ddd;
     padding: 15px;
     display: flex;
@@ -220,25 +230,11 @@ header img {
 
 .location-card img,
 #locationDetails img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
     border-bottom: 1px solid #ddd;
     display: block;
     object-fit: cover;
-}
-
-.placeholder {
-    width: 100%;
-    height: 150px;
-    background-color: #ddd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #333;
-    font-size: 16px;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
-    border-radius: 1rem;
 }
 
 .location-card .location-info {
@@ -255,37 +251,21 @@ header img {
     color: #555;
 }
 
-.main-container {
-    margin-top: 90px;
-    display: flex;
-}
 
 #locationDetails {
     display: none;
     width: 250px;
-    max-height: 570px;
+    height: 570px;
     background-color: #fff;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-    overflow-x: hidden;
+    overflow-x: auto;
+    overflow-y: auto;
     z-index: 999;
     transition: height 0.5s ease-in-out;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 1rem;
     background: #f9f9f9;
-}
-
-.image-placeholder {
-    width: 100%;
-    height: 200px;
-    background-color: #ccc;
-    color: #333;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
 }
 
 
@@ -301,6 +281,97 @@ header img {
     height: 250px;
 }
 
-#toggle-route-btn{
+#toggle-route-btn {
     display: none;
+}
+
+.btns{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+.detailbtn{
+width: 2rem;
+padding: 5px  10px ;
+color: #fff;
+background-color: #16b4cf;
+border: none;
+border-radius: .5rem;
+}
+
+@media(max-width:895px) {
+    header {
+        display: none;
+        width: 80px;
+        height: 80px;
+    }
+
+    #sidebar {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        padding: .5rem;
+        overflow-y: auto;
+        overflow-x: auto;
+        z-index: 1000;
+    }
+
+    .category-icons {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .main-container {
+        position: absolute;
+        left: 5px;
+        width: 100%;
+        max-height: 100px;
+        display: grid;
+        grid-template-rows: 2fr 2fr;
+    }
+
+    #locationCards {
+        flex-direction: row;
+        position: absolute;
+        top: 320px;
+        width: 100%;
+        height: 150px;
+        grid-row: 2;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    .location-card {
+        border-bottom: none;
+        border-right: 1px solid #ddd;
+    }
+
+    .location-card img {
+        width: 180px;
+    }
+
+    #locationDetails {
+        width: 462px;
+        height: 370px;
+        position: absolute;
+        top: 90px;
+        grid-row: 1;
+    }
+
+    .gps-btn {
+        bottom: 110px;
+    }
+
+    .resetMapBtn {
+        bottom: 170px;
+    }
+   .leaflet-right{
+    right: 10%;
+   }
+   .leaflet-top{
+    top: 50%;
+   }
+   .leaflet-left{
+    top: 0;
+   }
 }

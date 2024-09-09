@@ -47,6 +47,31 @@
                 </button>
                 <span class="tooltiptext">Water Falls</span>
             </div>
+            <div class="tooltip">
+                <button data-category="mountains" id="mountains">
+                    <i class="fa-solid fa-mountain"></i>
+                </button>
+                <span class="tooltiptext">Mountains</span>
+            </div>
+            <div class="tooltip">
+                <button data-category="lakes" id="lakes">
+                    <i class="fa-solid fa-water-ladder"></i>
+                </button>
+                <span class="tooltiptext">Lakes</span>
+            </div>
+            <div class="tooltip">
+                <button data-category="museums" id="museums">
+                    <i class="fa-solid fa-landmark"></i>
+                </button>
+                <span class="tooltiptext">Museums</span>
+            </div>
+            <div class="tooltip">
+                <button data-category="parks" id="parks">
+                    <i class="fa-solid fa-tree"></i>
+                </button>
+                <span class="tooltiptext">Parks</span>
+            </div>
+
         </div>
     </div>
 
@@ -54,20 +79,23 @@
         <div id="locationCards"></div>
         <div id="locationDetails"></div>
     </div>
-    
-
     <button class="resetMapBtn" id="resetMapBtn">
+
+
         <i class="fa-solid fa-arrow-rotate-left"></i>
     </button>
 
     <div id="map">
         <div class="search-box">
             <i class="fa-solid fa-search-location"></i>
-            
-            <input id="search" type="text"
-                placeholder="Where do you want to go..." />
-        </div>
 
+            <input id="search" type="text" placeholder="Where do you want to go..." />
+        <!-- </div>
+        <div id="buttons"> -->
+            <!-- <button id="bus-stops-btn">Bus Stops</button>
+            <button id="train-stations-btn">Train Stations</button>
+            <button id="airports-btn">Airports</button> -->
+        </div>
         <button class="gps-btn" id="gpsBtn">
             <i class="fa-regular fa-circle-dot"></i>
         </button>
@@ -79,4 +107,5 @@
     <script src="https://cdn.jsdelivr.net/npm/leaflet-compass@1.5.0/dist/leaflet-compass.min.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>

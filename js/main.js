@@ -1,27 +1,75 @@
 document.addEventListener('DOMContentLoaded', function () {
-    
+
     var map = L.map('map').setView([13.3411861, 74.7519958], 10);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors'
-    }).addTo(map);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
     var compass = L.control.compass({
         autoActive: true,   
-        showDigit: true,  
-        angleOffset: 0,  
-        position: 'topleft'
+        showDigit: true,
+        position: 'topleft'    
     }).addTo(map);
+    
+    function fetchAndPinLocations(overpassQuery) {
+        var url = "https://overpass-api.de/api/interpreter?data=" + encodeURIComponent(overpassQuery);
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                data.elements.forEach(function(element) {
+                    var lat = element.lat;
+                    var lon = element.lon;
+                    var name = element.tags.name || "Unnamed Location";
+
+                    // Place a marker for each location
+                    L.marker([lat, lon])
+                        .addTo(map)
+                        .bindPopup(name);
+                });
+            })
+            .catch(console.error);
+    }
+
+    // Overpass queries for bus stops, train stations, and airports
+    var busStopsQuery = `
+        [out:json];
+        node["highway"="bus_stop"](around:10000,13.3411861,74.7519958);
+        out body;
+    `;
+
+    var trainStationsQuery = `
+        [out:json];
+        node["railway"="station"](around:10000,13.3411861,74.7519958);
+        out body;
+    `;
+
+    var airportsQuery = `
+        [out:json];
+        node["aeroway"="aerodrome"](around:9000000,13.3411861,74.7519958);
+        out body;
+    `;
+
+    // Add event listeners for buttons to fetch and display data
+    document.getElementById('bus-stops-btn').addEventListener('click', function() {
+        fetchAndPinLocations(busStopsQuery);
+    });
+
+    document.getElementById('train-stations-btn').addEventListener('click', function() {
+        fetchAndPinLocations(trainStationsQuery);
+    });
+
+    document.getElementById('airports-btn').addEventListener('click', function() {
+        fetchAndPinLocations(airportsQuery);
+    });
 
     var locationLayer;
     var locationData;
     var eventLayer;
     var eventsData;
     let currentDestination = null;
-    let routeVisible = true;
 
     function showLocationDetails(location) {
-        locationDetails.innerHTML = '<button id="closeDetailsButton"><i class="fa-solid fa-x"></i></button><button id="routeButton">Show Route</button><button id="toggle-route-btn">Navigate</button>';
+        locationDetails.innerHTML = '<div class="btns"><button id="closeDetailsButton" class="detailbtn"><i class="fa-solid fa-x"></i></button><button id="routeButton" class="detailbtn"><i class="fa-solid fa-route"></i></button><button id="toggle-route-btn" class="detailbtn"><i class="fa-solid fa-diamond-turn-right"></i></button></div>';
 
         // Create and append the heading element
         const headingElement = document.createElement('h2');
@@ -39,11 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
         placeholderElement.textContent = 'Image not available';
 
         // Handle image loading error
-        imageElement.onerror = function () {
-            // Hide the image and show the placeholder
-            imageElement.style.display = 'none';
-            locationDetails.appendChild(placeholderElement);
-        };
+       
 
         // Append the image element before adding other content
         locationDetails.appendChild(imageElement);
@@ -68,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Add event listener to the route button
         document.getElementById('routeButton').addEventListener('click', function () {
             if (currentDestination) {
-                displayRouteToDestination(currentDestination.lat, currentDestination.lng);
+                displayRouteToDestination(currentDestination.lat, currentDestination.lng, location.properties.name);
                 document.getElementById('toggle-route-btn').style.display = 'block';
             } else {
                 alert("Destination coordinates are not set.");
@@ -103,13 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
             img.src = `images/${location.properties.img}`;
             img.alt = `${location.properties.name}`;
 
-            img.onerror = function () {
-                img.style.display = 'none';
-                const placeholder = document.createElement('div');
-                placeholder.className = 'placeholder';
-                placeholder.textContent = 'Image not available';
-                card.appendChild(placeholder);
-            };
+           
 
             card.appendChild(img);
 
@@ -117,7 +155,6 @@ document.addEventListener('DOMContentLoaded', function () {
             info.classList.add('location-info');
             info.innerHTML = `
                 <h4>${location.properties.name}</h4>
-                <p>${location.properties.description}</p>
             `;
             card.appendChild(info);
 
@@ -152,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let routeControl = null;
 
-    function displayRouteToDestination(destLat, destLng) {
+    function displayRouteToDestination(destLat, destLng, destName) {
         if (!map) {
             console.error("Map is not initialized.");
             return;
@@ -163,13 +200,6 @@ document.addEventListener('DOMContentLoaded', function () {
             navigator.geolocation.getCurrentPosition(function (position) {
                 const sourceLat = position.coords.latitude;
                 const sourceLng = position.coords.longitude;
-
-                // Center the map to the current location first
-
-                // Add marker for the current location
-                L.marker([sourceLat, sourceLng]).addTo(map)
-                    .bindPopup("You are here")
-                    .openPopup();
 
                 // Clear previous route if exists
                 if (routeControl) {
@@ -182,8 +212,18 @@ document.addEventListener('DOMContentLoaded', function () {
                     waypoints: [
                         L.latLng(sourceLat, sourceLng),
                         L.latLng(destLat, destLng)
-                    ]
+                    ],
+                    showAlternatives: true
                 }).addTo(map);
+                L.marker([sourceLat, sourceLng]).addTo(map)
+                    .bindPopup("You are here")
+                    .on('click', function () {
+                        map.setView([sourceLat, sourceLng], 12);
+                    })
+                    .openPopup();
+                L.marker([destLat, destLng]).addTo(map)
+                    .bindPopup(destName)
+                    .openPopup();
                 CenterToMe(position.coords.latitude, position.coords.longitude);
 
             }, function (error) {
@@ -202,14 +242,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function toggleRouteVisibility() {
         const routeContainer = document.querySelector('.leaflet-routing-container');
-        
+
         if (routeContainer.style.display === 'block') {
-            routeContainer.style.display = 'none'; 
+            routeContainer.style.display = 'none';
         } else {
-            routeContainer.style.display = 'block'; 
+            routeContainer.style.display = 'block';
         }
     }
-    
+
 
     fetch('data/location-desc.json')
         .then(response => response.json())
@@ -263,7 +303,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     locationCards.style.display = 'none';
                     map.removeLayer(locationLayer);
                 } else {
-                    locationCards.style.display = 'block';
+                    locationCards.style.display = 'flex';
                 }
 
 

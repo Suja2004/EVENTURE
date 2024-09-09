@@ -10,57 +10,57 @@ document.addEventListener('DOMContentLoaded', function () {
         position: 'topleft'    
     }).addTo(map);
     
-    function fetchAndPinLocations(overpassQuery) {
-        var url = "https://overpass-api.de/api/interpreter?data=" + encodeURIComponent(overpassQuery);
+    // function fetchAndPinLocations(overpassQuery) {
+    //     var url = "https://overpass-api.de/api/interpreter?data=" + encodeURIComponent(overpassQuery);
 
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                data.elements.forEach(function(element) {
-                    var lat = element.lat;
-                    var lon = element.lon;
-                    var name = element.tags.name || "Unnamed Location";
+    //     fetch(url)
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             data.elements.forEach(function(element) {
+    //                 var lat = element.lat;
+    //                 var lon = element.lon;
+    //                 var name = element.tags.name || "Unnamed Location";
 
-                    // Place a marker for each location
-                    L.marker([lat, lon])
-                        .addTo(map)
-                        .bindPopup(name);
-                });
-            })
-            .catch(console.error);
-    }
+    //                 // Place a marker for each location
+    //                 L.marker([lat, lon])
+    //                     .addTo(map)
+    //                     .bindPopup(name);
+    //             });
+    //         })
+    //         .catch(console.error);
+    // }
 
-    // Overpass queries for bus stops, train stations, and airports
-    var busStopsQuery = `
-        [out:json];
-        node["highway"="bus_stop"](around:10000,13.3411861,74.7519958);
-        out body;
-    `;
+    // // Overpass queries for bus stops, train stations, and airports
+    // var busStopsQuery = `
+    //     [out:json];
+    //     node["highway"="bus_stop"](around:10000,13.3411861,74.7519958);
+    //     out body;
+    // `;
 
-    var trainStationsQuery = `
-        [out:json];
-        node["railway"="station"](around:10000,13.3411861,74.7519958);
-        out body;
-    `;
+    // var trainStationsQuery = `
+    //     [out:json];
+    //     node["railway"="station"](around:10000,13.3411861,74.7519958);
+    //     out body;
+    // `;
 
-    var airportsQuery = `
-        [out:json];
-        node["aeroway"="aerodrome"](around:9000000,13.3411861,74.7519958);
-        out body;
-    `;
+    // var airportsQuery = `
+    //     [out:json];
+    //     node["aeroway"="aerodrome"](around:9000000,13.3411861,74.7519958);
+    //     out body;
+    // `;
 
-    // Add event listeners for buttons to fetch and display data
-    document.getElementById('bus-stops-btn').addEventListener('click', function() {
-        fetchAndPinLocations(busStopsQuery);
-    });
+    // // Add event listeners for buttons to fetch and display data
+    // document.getElementById('bus-stops-btn').addEventListener('click', function() {
+    //     fetchAndPinLocations(busStopsQuery);
+    // });
 
-    document.getElementById('train-stations-btn').addEventListener('click', function() {
-        fetchAndPinLocations(trainStationsQuery);
-    });
+    // document.getElementById('train-stations-btn').addEventListener('click', function() {
+    //     fetchAndPinLocations(trainStationsQuery);
+    // });
 
-    document.getElementById('airports-btn').addEventListener('click', function() {
-        fetchAndPinLocations(airportsQuery);
-    });
+    // document.getElementById('airports-btn').addEventListener('click', function() {
+    //     fetchAndPinLocations(airportsQuery);
+    // });
 
     var locationLayer;
     var locationData;

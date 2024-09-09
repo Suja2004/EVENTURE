@@ -375,16 +375,34 @@ border-radius: .5rem;
     top: 10%;
    }
 }
+/* Apply orientation lock only for screens smaller than 768px (common mobile/tablet size) */
+@media only screen and (max-width: 768px) {
+    @media screen and (orientation:landscape) {
+        body {
+            transform: rotate(90deg);
+            transform-origin: left top;
+            width: 100vh;
+            height: 100vw;
+            overflow-x: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
 
-@media screen and (orientation:landscape) {
-    body {
-        transform: rotate(90deg);
-        transform-origin: left top;
-        width: 100vh;
-        height: 100vw;
-        overflow-x: hidden;
-        position: absolute;
-        top: 100%;
-        left: 0;
+        /* Display a message prompting to rotate the device */
+        .rotate-message {
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2em;
+            text-align: center;
+        }
+    }
+
+    .rotate-message {
+        display: none;
     }
 }
+

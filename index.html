@@ -1,21 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EVENTURE</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-compass@1.5.0/dist/leaflet-compass.min.css" />
-    <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
-    <header class="logo">
-        <img src="logo/eventure.png" alt="EVENTURE">
-    </header>
     <div id="sidebar">
         <div class="category-icons">
             <div class="tooltip">
@@ -32,7 +26,8 @@
             </div>
             <div class="tooltip">
                 <button data-category="zoos" id="zoos">
-                    <i class="fa-solid fa-paw"></i></button>
+                    <i class="fa-solid fa-paw"></i>
+                </button>
                 <span class="tooltiptext">Zoos</span>
             </div>
             <div class="tooltip">
@@ -71,41 +66,25 @@
                 </button>
                 <span class="tooltiptext">Parks</span>
             </div>
-
         </div>
     </div>
 
-    <div class="main-container">
-        <div id="locationCards"></div>
-        <div id="locationDetails"></div>
-    </div>
-    <button class="resetMapBtn" id="resetMapBtn">
-
-
-        <i class="fa-solid fa-arrow-rotate-left"></i>
-    </button>
-
-    <div id="map">
-        <div class="search-box">
-            <i class="fa-solid fa-search-location"></i>
-
-            <input id="search" type="text" placeholder="Where do you want to go..." />
-        <!-- </div>
-        <div id="buttons"> -->
-            <!-- <button id="bus-stops-btn">Bus Stops</button>
-            <button id="train-stations-btn">Train Stations</button>
-            <button id="airports-btn">Airports</button> -->
+    <div class="main-content">
+        <div class="locations-container">
+            <div class="locations-list">
+            </div>
         </div>
-        <button class="gps-btn" id="gpsBtn">
-            <i class="fa-regular fa-circle-dot"></i>
-        </button>
+        <div class="details-container">
+            <div class="details" id="details">
+            </div>
+            <div class="map" id="map">
+            </div>
+        </div>
     </div>
 
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
     <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet-compass@1.5.0/dist/leaflet-compass.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="script.js"></script>
 </body>
-
 </html>

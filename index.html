@@ -13,7 +13,7 @@
     <div id="sidebar">
         <div class="category-icons">
             <div class="tooltip">
-                <button data-category="historical" id="historical">
+                <button class="active" data-category="historical" id="historical">
                     <i class="fa-solid fa-gopuram"></i>
                 </button>
                 <span class="tooltiptext">Historical</span>
@@ -70,14 +70,16 @@
     </div>
 
     <div class="main-content">
-        <div class="locations-container">
+        <div class="locations-container" id="locations">
             <div class="locations-list">
             </div>
         </div>
-        <div class="details-container">
+        <div class="details-container" id="det-con">
             <div class="details" id="details">
             </div>
             <div class="map" id="map">
+                <button id="back-btn" class="detailbtn back"><i class="fa-solid fa-arrow-left-long"></i></i></button>
+                <button id="toggle-route-btn" class="detailbtn navi"><i class="fa-solid fa-diamond-turn-right"></i></button>
             </div>
         </div>
     </div>

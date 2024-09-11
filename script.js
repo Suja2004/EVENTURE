@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch(locationsFile);
             const data = await response.json();
             const locationsList = document.querySelector('.locations-list');
-            locationsList.innerHTML = ''; 
+            locationsList.innerHTML = '';
 
             // Filter locations based on the selected category
             const filteredFeatures = data.features.filter(feature => feature.properties.category === category);
@@ -41,7 +41,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h3>${feature.properties.name}</h3>
                 `;
                 card.addEventListener('click', () => {
-                    document.getElementById('details').style.display = "block";
+
+                    if (window.matchMedia("(max-width: 640px)").matches) {
+
+                        document.getElementById('details').style.display = "block";
+                    } else {
+                        document.getElementById('details').style.display = "flex";
+
+                    }
+                    document.getElementById('map').style.display = 'none';
+
                     showDetails(
                         feature.properties.name,
                         feature.properties.description,
@@ -64,13 +73,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const details = document.querySelector('#details');
 
         // Show location details
-        details.innerHTML = `<div class="btns"><button id="closeDetailsButton" class="detailbtn"><i class="fa-solid fa-x"></i></button><button id="routeButton" class="detailbtn"><i class="fa-solid fa-route"></i></button><button id="toggle-route-btn" class="detailbtn"><i class="fa-solid fa-diamond-turn-right"></i></button></div>
+        details.innerHTML = `<div class="btns image"><button id="routeButton" class="detailbtn"><i class="fa-solid fa-route"></i></button>
             <h2>${name}</h2>
-            <img src="images/${img}" alt="${name}" class="detail-image">
+            <img src="images/${img}" alt="${name}" class="detail-image"></div><div class = "descript" id = "descript">
             <p><strong>Description:</strong> ${description}</p>
             <p><strong>Address:</strong> ${address}</p>
             <p><strong>Contact:</strong> ${contact}</p>
-            <p><strong>Opening Hours:</strong> ${openingHours}</p>
+            <p><strong>Opening Hours:</strong> ${openingHours}</p></div>
         `;
 
         // Update map
@@ -83,19 +92,41 @@ document.addEventListener('DOMContentLoaded', () => {
             .openPopup();
 
         map.setView([latitude, longitude], 15);
+
+        document.getElementById('back-btn').addEventListener('click', function () {
+            back();
+        });
+
         document.getElementById('toggle-route-btn').addEventListener('click', function () {
             toggleRouteVisibility();
         });
 
         document.getElementById('routeButton').addEventListener('click', function () {
-                displayRouteToDestination(latitude,longitude, name);
-                document.getElementById('toggle-route-btn').style.display = 'block';
+            displayRouteToDestination(latitude, longitude, name);
+            document.getElementById('toggle-route-btn').style.display = 'block';
+            document.getElementById('back-btn').style.display = 'block';
+            document.getElementById('map').style.display = 'block';
+            document.getElementById('det-con').style.minHeight = '100%';
+            document.getElementById('details').style.display = 'none';
+            document.getElementById('locations').style.display = 'none';
+
         });
-        
-        document.getElementById('closeDetailsButton').addEventListener('click', function () {
-            details.style.display = 'none';
-        });
+
     };
+
+    function back() {
+        if (window.matchMedia("(max-width: 640px)").matches) {
+
+            document.getElementById('details').style.display = "block";
+            document.getElementById('det-con').style.minHeight = '54%';
+        } else {
+            document.getElementById('details').style.display = "flex";
+
+        }        
+        document.getElementById('locations').style.display = 'block';
+        document.getElementById('map').style.display = 'none';
+
+    }
 
     function toggleRouteVisibility() {
         const routeContainer = document.querySelector('.leaflet-routing-container');
@@ -110,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let routeControl = null;
 
     function CenterToMe(sourceLat, sourceLng) {
-        map.setView([sourceLat, sourceLng],7);
+        map.setView([sourceLat, sourceLng], 17);
 
     }
 
@@ -137,16 +168,19 @@ document.addEventListener('DOMContentLoaded', () => {
                         L.latLng(sourceLat, sourceLng),
                         L.latLng(destLat, destLng)
                     ],
-                    showAlternatives: true
+                    showAlternatives: false
                 }).addTo(map);
                 L.marker([sourceLat, sourceLng]).addTo(map)
                     .bindPopup("You are here")
                     .on('click', function () {
-                        map.setView([sourceLat, sourceLng], 12);
+                        map.setView([sourceLat, sourceLng], 15);
                     })
                     .openPopup();
                 L.marker([destLat, destLng]).addTo(map)
                     .bindPopup(destName)
+                    .on('click', function () {
+                        map.setView([destLat, destLng], 15);
+                    })
                     .openPopup();
                 CenterToMe(position.coords.latitude, position.coords.longitude);
 

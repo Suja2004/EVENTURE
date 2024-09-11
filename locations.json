@@ -117,22 +117,6 @@
             "type": "Feature",
             "geometry": {
                 "type": "Point",
-                "coordinates": [74.8422293, 12.8678808]
-            },
-            "properties": {
-                "name": "Mangalore Fort",
-                "category": "historical",
-                "description": "A fort with historical significance and a great view of the city.",
-                "img": "mangalore_fort.png",
-                "address": "Mangalore Fort, Mangalore, Karnataka, India",
-                "contact": "+91 890 123 4567",
-                "openingHours": "8:00 AM - 5:00 PM"
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
                 "coordinates": [74.8414, 12.8696]
             },
             "properties": {

@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize the map
-    var map = L.map('map').setView([13.3411861, 74.7519958], 10);
+    var map = L.map('map').setView([13.3411861, 74.7519958], 9);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
@@ -10,9 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fetch and populate categories
     const categoryButtons = document.querySelectorAll('#sidebar button');
 
+    const navbar = document.querySelectorAll('navbar a');
+
+    var locationLayer = L.layerGroup().addTo(map);
+
     categoryButtons.forEach(button => {
         button.addEventListener('click', () => {
             const category = button.dataset.category;
+
             loadLocations(category);
 
             categoryButtons.forEach(btn => btn.classList.remove('active'));
@@ -20,13 +25,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+
+    // navbar.forEach(link =>{
+    //     link.addEventListener('click',()=>{
+    //         navbar.forEach(btn => btn.classList.remove('current'));
+    //         link.classList.add('current');
+    //     })
+    // })
     // Function to load and display locations
     const loadLocations = async (category) => {
         try {
             const response = await fetch(locationsFile);
             const data = await response.json();
             const locationsList = document.querySelector('.locations-list');
-            locationsList.innerHTML = '';
+            locationsList.innerHTML = ''; // Clear previous locations
+
+            // Clear previous markers
+            locationLayer.clearLayers();
 
             // Filter locations based on the selected category
             const filteredFeatures = data.features.filter(feature => feature.properties.category === category);
@@ -37,17 +52,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.dataset.latitude = feature.geometry.coordinates[1];
                 card.dataset.longitude = feature.geometry.coordinates[0];
                 card.innerHTML = `
-                    <img src="images/${feature.properties.img}" alt="${feature.properties.name}">
-                    <h3>${feature.properties.name}</h3>
-                `;
+                <img src="images/${feature.properties.img}" alt="${feature.properties.name}">
+                <h3>${feature.properties.name}</h3>
+            `;
+
+                // Add a marker for each location
+                const marker = L.marker([feature.geometry.coordinates[1], feature.geometry.coordinates[0]])
+                    .bindPopup(feature.properties.name)
+                    .on('click', function () {
+                        map.setView([feature.geometry.coordinates[1], feature.geometry.coordinates[0]], 13); // Center map on marker click
+                    })
+                    .addTo(locationLayer);
+
                 card.addEventListener('click', () => {
-
                     if (window.matchMedia("(max-width: 640px)").matches) {
-
                         document.getElementById('details').style.display = "block";
                     } else {
                         document.getElementById('details').style.display = "flex";
-
                     }
                     document.getElementById('map').style.display = 'none';
 
@@ -62,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         feature.geometry.coordinates[0]
                     );
                 });
+
                 locationsList.appendChild(card);
             });
         } catch (error) {
@@ -73,16 +95,27 @@ document.addEventListener('DOMContentLoaded', () => {
         const details = document.querySelector('#details');
 
         // Show location details
-        details.innerHTML = `<div class="btns image"><button id="routeButton" class="detailbtn"><i class="fa-solid fa-route"></i></button>
+        details.innerHTML = `
+        <div class="btns image">
+            <button id="routeButton" class="detailbtn"><i class="fa-solid fa-route"></i></button>
+            <button id="save" class="save"><i class="fa-regular fa-bookmark"></i></button>
             <h2>${name}</h2>
-            <img src="images/${img}" alt="${name}" class="detail-image"></div><div class = "descript" id = "descript">
+            <img src="images/${img}" alt="${name}" class="detail-image">
+        </div>
+        <div class="descript" id="descript">
             <p><strong>Description:</strong> ${description}</p>
             <p><strong>Address:</strong> ${address}</p>
             <p><strong>Contact:</strong> ${contact}</p>
-            <p><strong>Opening Hours:</strong> ${openingHours}</p></div>
-        `;
+            <p><strong>Opening Hours:</strong> ${openingHours}</p>
+        </div>
+    `;
 
-        // Update map
+        // Attach the event listener to the save button
+        document.getElementById('save').addEventListener('click', function () {
+            toggleBookmark(this);
+        });
+
+        // Add marker to the map and other functionalities
         if (currentMarker) {
             map.removeLayer(currentMarker);
         }
@@ -93,6 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         map.setView([latitude, longitude], 15);
 
+        // Event listeners for other buttons
         document.getElementById('back-btn').addEventListener('click', function () {
             back();
         });
@@ -109,10 +143,24 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('det-con').style.minHeight = '100%';
             document.getElementById('details').style.display = 'none';
             document.getElementById('locations').style.display = 'none';
-
         });
-
     };
+
+    function toggleBookmark(button) {
+        const icon = button.querySelector('svg');
+
+        if (!icon) {
+            console.error("SVG icon element not found!");
+            return;
+        }
+
+        if (icon.getAttribute('data-prefix') === 'far') {
+            icon.setAttribute('data-prefix', 'fas');
+        } else {
+            icon.setAttribute('data-prefix', 'far'); 
+        }
+    }
+
 
     function back() {
         if (window.matchMedia("(max-width: 640px)").matches) {
@@ -122,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             document.getElementById('details').style.display = "flex";
 
-        }        
+        }
         document.getElementById('locations').style.display = 'block';
         document.getElementById('map').style.display = 'none';
 
@@ -151,14 +199,14 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Get the current GPS location
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function (position) {
                 const sourceLat = position.coords.latitude;
                 const sourceLng = position.coords.longitude;
+                locationLayer.clearLayers();
 
-                // Clear previous route if exists
                 if (routeControl) {
+                    locationLayer.clearLayers();
                     map.removeControl(routeControl);
                     routeControl = null;
                 }

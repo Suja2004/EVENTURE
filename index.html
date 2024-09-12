@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
+
 <body>
     <div id="sidebar">
         <div class="category-icons">
@@ -16,7 +18,7 @@
                 <button class="active" data-category="historical" id="historical">
                     <i class="fa-solid fa-gopuram"></i>
                 </button>
-                <span class="tooltiptext">Historical</span>
+                <span class="tooltiptext">Cultural</span>
             </div>
             <div class="tooltip">
                 <button data-category="beaches" id="beaches">
@@ -70,6 +72,19 @@
     </div>
 
     <div class="main-content">
+        <nav class="navbarpc" >
+            <a href="index.html" class="home current">HOME</a>
+            <a href="saved.html" class="home">SAVED</a>
+            <a href="index.html" class="home">MY PLANS</a>
+            <a href="index.html" class="home">ACCOUNT</a>
+        </nav>
+        <nav class="navbarmob" >
+            <a href="index.html" class="home current"><i class="fa-solid fa-house"></i></a>
+            <a href="saved.html" class="home"><i class="fa-solid fa-bookmark"></i></a>
+            <a href="index.html" class="home"><i class="fa-solid fa-book-open"></i></a>
+            <a href="index.html" class="home"><i class="fa-solid fa-user"></i></a>
+        </nav>
+        </nav>
         <div class="locations-container" id="locations">
             <div class="locations-list">
             </div>
@@ -79,14 +94,16 @@
             </div>
             <div class="map" id="map">
                 <button id="back-btn" class="detailbtn back"><i class="fa-solid fa-arrow-left-long"></i></i></button>
-                <button id="toggle-route-btn" class="detailbtn navi"><i class="fa-solid fa-diamond-turn-right"></i></button>
+                <button id="toggle-route-btn" class="detailbtn navi"><i
+                        class="fa-solid fa-diamond-turn-right"></i></button>
             </div>
         </div>
     </div>
 
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
     <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

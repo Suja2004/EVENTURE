@@ -8,8 +8,28 @@ body {
     flex-direction: row;
 }
 
+a {
+    text-decoration: none;
+    color: #0056b3;
+}
+
+.current{
+    border-bottom: 2px solid #0056b3;
+}
+
+.navbarmob{
+display: none;
+}
+nav{
+    width: 100%;
+    height: 5%;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
 #sidebar {
-    width: 80px;
+    min-width: 90px;
     background-color: #f8f9fa;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
@@ -21,6 +41,9 @@ body {
     margin: 1rem 0;
     border-radius: .3rem;
     padding: 1rem;
+}
+.navbarmob a{
+    font-size: 1.3rem;
 }
 
 .category-icons {
@@ -114,8 +137,9 @@ button.active {
 .details-container {
     width: 100%;
     display: flex;
+    justify-content: center;
     margin-top: 20px;
-    min-height: 65%;
+    min-height: 60%;
 }
 
 .details {
@@ -130,23 +154,24 @@ button.active {
     text-wrap: wrap;
     overflow-x: hidden;
     overflow-y: auto;
-    gap: 10%;
+    gap: 10px;
 }
 
-.btns{
+.btns {
     width: 80%;
     flex: 2;
 }
 
-.descript{
+.descript {
     width: 50%;
     flex: 2;
 }
 
 .details img {
-    width: 90%;
+    width: 70%;
     object-fit: cover;
     border-bottom: 1px solid #ddd;
+    border-radius: .3rem;
 }
 
 #map {
@@ -188,7 +213,7 @@ button.active {
     z-index: 999;
 }
 
-.back{
+.back {
     display: none;
     position: absolute;
     top: 10px;
@@ -196,14 +221,45 @@ button.active {
     z-index: 999;
 }
 
-@media(max-width:900px){
-    #sidebar{
-        width: 150px;
+.location-card .save {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.location-card:hover .save {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.leaflet-bottom{
+    display: none;
+}
+
+@media(max-width:900px) {
+    #sidebar {
+        min-width: 70px;
     }
+    
+.details img {
+    width: 90%;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}  
 }
 
 @media only screen and (max-width: 640px) {
-
+    .navbarpc{
+        display: none;
+        }
+    .navbarmob{
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        z-index: 999;
+    } 
     .main-content {
         padding: 20px 0;
     }
@@ -216,8 +272,8 @@ button.active {
         position: fixed;
         width: 100%;
         height: 15%;
-        bottom: 0;
-        z-index: 9999;
+        bottom: 10%;
+        z-index: 997;
         overflow-x: auto;
         overflow-y: hidden;
         background-color: #fff;
@@ -243,7 +299,7 @@ button.active {
         overflow-x: auto;
         overflow-y: auto;
         white-space: nowrap;
-        min-height: 54%;
+        min-height: 48%;
         max-height: 50%;
     }
 
@@ -255,7 +311,7 @@ button.active {
         width: 100%;
     }
 
-    .descript{
+    .descript {
         width: 100%;
     }
 

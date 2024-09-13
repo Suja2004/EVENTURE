@@ -256,7 +256,7 @@ button.active {
         }
     .navbarmob{
         display: flex;
-        position: absolute;
+        position: fixed;
         bottom: 0;
         z-index: 999;
     } 

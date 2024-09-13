@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fetch and populate categories
     const categoryButtons = document.querySelectorAll('#sidebar button');
 
-    const navbar = document.querySelectorAll('navbar a');
+    // const navbar = document.querySelectorAll('navbar a');
 
     var locationLayer = L.layerGroup().addTo(map);
 
@@ -35,14 +35,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to load and display locations
     const loadLocations = async (category) => {
         try {
-            const response = await fetch(locationsFile);
-            const data = await response.json();
+
             const locationsList = document.querySelector('.locations-list');
             locationsList.innerHTML = ''; // Clear previous locations
 
             // Clear previous markers
             locationLayer.clearLayers();
 
+            const response = await fetch(locationsFile);
+            const data = await response.json();
             // Filter locations based on the selected category
             const filteredFeatures = data.features.filter(feature => feature.properties.category === category);
             filteredFeatures.forEach(feature => {
@@ -97,8 +98,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Show location details
         details.innerHTML = `
         <div class="btns image">
+            <button id="save" class="save" onclick="togglePin('${name}')">
+                ${isPinned(name) ? '<i class="fa-solid fa-bookmark"></i>' : '<i class="fa-regular fa-bookmark"></i>'}
+            </button>
             <button id="routeButton" class="detailbtn"><i class="fa-solid fa-route"></i></button>
-            <button id="save" class="save"><i class="fa-regular fa-bookmark"></i></button>
             <h2>${name}</h2>
             <img src="images/${img}" alt="${name}" class="detail-image">
         </div>
@@ -109,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <p><strong>Opening Hours:</strong> ${openingHours}</p>
         </div>
     `;
+
 
         // Attach the event listener to the save button
         document.getElementById('save').addEventListener('click', function () {
@@ -146,6 +150,70 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    function isPinned(name) {
+        const pinnedLocations = JSON.parse(localStorage.getItem('pinnedLocations') || '[]');
+        return pinnedLocations.includes(name);
+    }
+
+    window.togglePin = function (name) {
+        let pinnedLocations = JSON.parse(localStorage.getItem('pinnedLocations') || '[]');
+        if (pinnedLocations.includes(name)) {
+            pinnedLocations = pinnedLocations.filter(location => location !== name);
+        } else {
+            pinnedLocations.push(name);
+        }
+        localStorage.setItem('pinnedLocations', JSON.stringify(pinnedLocations));
+        // console.log(pinnedLocation);
+    };
+
+    async function displaySavedLocations() {
+        const savedList = document.getElementById('saved-list');
+
+        if (!savedList) {
+            console.error('Element with id "saved-list" not found.');
+            return;
+        }
+
+        while (savedList.firstChild) {
+            savedList.removeChild(savedList.firstChild);
+        }
+
+        const pinnedLocations = JSON.parse(localStorage.getItem('pinnedLocations') || '[]');
+        const response = await fetch(locationsFile);
+        const data = await response.json();
+
+        pinnedLocations.forEach(location => {
+
+            const filteredFeatures = data.features.filter(feature => feature.properties.name === location);
+
+            filteredFeatures.forEach(feature => {
+                // Create container for each location
+                const listItem = document.createElement('div');
+                listItem.className = 'location-card';
+
+                // Create image element
+                const img = document.createElement('img');
+                img.src = `images/${feature.properties.img}`; // Adjust path as necessary
+                img.alt = feature.properties.name;
+                img.className = 'location-image';
+                // Create name element
+                const name = document.createElement('p');
+                name.textContent = feature.properties.name;
+                name.className = 'location-name';
+
+                // Append image and name to list item
+                listItem.appendChild(img);
+                listItem.appendChild(name);
+
+                // Append list item to saved list
+                savedList.appendChild(listItem);
+            });
+        });
+    }
+
+    displaySavedLocations();
+
+
     function toggleBookmark(button) {
         const icon = button.querySelector('svg');
 
@@ -157,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (icon.getAttribute('data-prefix') === 'far') {
             icon.setAttribute('data-prefix', 'fas');
         } else {
-            icon.setAttribute('data-prefix', 'far'); 
+            icon.setAttribute('data-prefix', 'far');
         }
     }
 

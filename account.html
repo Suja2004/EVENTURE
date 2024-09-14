@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Management</title>
+    <link rel="stylesheet" href="account.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbarpc">
+        <a href="index.html" class="home ">HOME</a>
+        <a href="saved.html" class="home">SAVED</a>
+        <a href="plans.html" class="home">MY PLANS</a>
+        <a href="account.html" class="home current">ACCOUNT</a>
+    </nav>
+    <nav class="navbarmob">
+        <a href="index.html" class="home "><i class="fa-solid fa-house"></i></a>
+        <a href="saved.html" class="home"><i class="fa-solid fa-bookmark"></i></a>
+        <a href="plans.html" class="home"><i class="fa-solid fa-book-open"></i></a>
+        <a href="account.html" class="home current"><i class="fa-solid fa-user"></i></a>
+    </nav>
+    <div class="container">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="#profile" class="nav-link" data-target="profile">Profile</a></li>
+                <li><a href="#settings" class="nav-link" data-target="settings">Settings</a></li>
+                <li><a href="#privacy" class="nav-link" data-target="privacy">Privacy</a></li>
+                <li><a href="#security" class="nav-link" data-target="security">Security</a></li>
+                <li><a href="#notifications" class="nav-link" data-target="notifications">Notifications</a></li>
+                <li><a href="#logout" class="nav-link" data-target="logout">Logout</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <section id="profile" class="content-section">
+                <h2>Profile</h2>
+                <form id="profile-form">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" value="JohnDoe">
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" value="johndoe@example.com">
+
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" value="+1234567890">
+
+                    <label for="address">Address:</label>
+                    <textarea id="address" name="address" rows="3">123 Main St, City, Country</textarea>
+
+                    <button type="submit">Save Changes</button>
+                </form>
+            </section>
+            <section id="settings" class="content-section hidden">
+                <h2>Settings</h2>
+                <p>Configure your account settings here.</p>
+                <form id="settings-form">
+                    <label for="language">Language:</label>
+                    <select id="language" name="language">
+                        <option value="en" selected>English</option>
+                        <option value="es">Spanish</option>
+                        <option value="fr">French</option>
+                    </select>
+
+                    <label for="timezone">Timezone:</label>
+                    <select id="timezone" name="timezone">
+                        <option value="UTC" selected>UTC</option>
+                        <option value="GMT">GMT</option>
+                        <option value="CET">CET</option>
+                    </select>
+
+                    <button type="submit">Save Settings</button>
+                </form>
+            </section>
+
+            <section id="privacy" class="content-section hidden">
+                <h2>Privacy</h2>
+                <p>Manage your privacy settings here.</p>
+                <form id="privacy-form">
+                    <label for="profile-visibility">Profile Visibility:</label>
+                    <select id="profile-visibility" name="profile-visibility">
+                        <option value="public" selected>Public</option>
+                        <option value="private">Private</option>
+                    </select>
+
+                    <button type="submit">Save Privacy Settings</button>
+                </form>
+            </section>
+
+            <section id="security" class="content-section hidden">
+                <h2>Security</h2>
+                <p>Update your security settings here.</p>
+                <form id="security-form">
+                    <label for="password">Change Password:</label>
+                    <input type="password" id="password" name="password" placeholder="New Password">
+
+                    <button type="submit">Change Password</button>
+                </form>
+            </section>
+
+            <section id="notifications" class="content-section hidden">
+                <h2>Notifications</h2>
+                <p>Manage your notification preferences here.</p>
+                <form id="notifications-form">
+                    <label for="email-notifications">Email Notifications:</label>
+                    <input type="checkbox" id="email-notifications" name="email-notifications" checked>
+
+                    <label for="sms-notifications">SMS Notifications:</label>
+                    <input type="checkbox" id="sms-notifications" name="sms-notifications">
+
+                    <button type="submit">Save Notifications Settings</button>
+                </form>
+            </section>
+
+            <section id="logout" class="content-section hidden">
+                <h2>Logout</h2>
+                <p>Click below to logout from your account.</p>
+                <button class="logout-button">Logout</button>
+            </section>
+        </main>
+    </div>
+
+    <script src="account.js"></script>
+</body>
+
+</html>

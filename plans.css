@@ -7,7 +7,7 @@
 }
 
 body {
-    overflow: hidden;
+    overflow: auto;
     font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
     font-weight: 100;
     color: rgba(255, 255, 255, 1);
@@ -36,6 +36,7 @@ nav {
     width: 100%;
     height: 5%;
     /* margin-bottom: 10px; */
+    font-weight: 700;
     display: flex;
     justify-content: space-evenly;
 }
@@ -106,7 +107,6 @@ nav {
 }
 
 .month {
-    /*overflow: hidden;*/
     opacity: 0;
 }
 
@@ -452,30 +452,116 @@ button:hover {
 
 }
 
-.plans-btn{
+.plans-btn {
     display: flex;
     width: 100%;
     justify-content: space-evenly;
 }
 
-.plans-btn button{
+.plans-btn button {
     margin: 10px;
     width: 40%;
 }
 
-@media(max-width:1000px){
-    .planner-container{
-        display: none;
-    }
-    #calendar{
-        position: absolute;
-        left: 25%;
-    }
-    
+#plans-list {
+    max-width: 900px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.plan-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.plan-card h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.plan-card p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.attractions {
+    margin-top: 10px;
+}
+
+.attraction {
+    background-color: #f9f9f9;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 4px;
+}
+
+.attraction p {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+}
+
+strong {
+    color: #333;
+}
+
+.view,
+.back {
+    position: absolute;
+    top: 11%;
+    z-index: 9999;
+}
+
+.back,.back:hover {
+    background-color: #fff;
+    color: #333;
+    font-size: 1.4rem;
 }
 
 
-@media  (max-width: 640px) {
+.delete-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 100%;
+    font-size: 16px;
+}
+
+.delete-btn:hover {
+    background-color: #e53935;
+}
+
+@media(max-width:1000px) {
+    .planner-container {
+        display: none;
+    }
+
+    #calendar {
+        position: absolute;
+        left: 25%;
+    }
+
+}
+
+
+@media (max-width: 640px) {
     .navbarpc {
         display: none;
     }
@@ -520,17 +606,15 @@ button:hover {
         width: 100%;
         z-index: 9999;
     }
+
+    .view,.back {
+        position: absolute;
+        top: 10px;
+        left: 5%;
+        width: 20%;
+    }
 }
 
-/* @media(max-width:440px){
-    #calendar{
-        position: absolute;
-        left: 0;
-    }
-    
-} */
-
-/* Animations are cool!  */
 @-webkit-keyframes moveFromTopFade {
     from {
         opacity: .3;

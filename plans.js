@@ -314,10 +314,14 @@ console.log(selectedDate);
   }
 }();
 
+const plans = JSON.parse(localStorage.getItem("plans")) || [];
+
 document.addEventListener('DOMContentLoaded', function() {
+  // Fetch events from events.json and send to calendar
   fetch('events.json')
     .then(response => response.json())
     .then(data => {
+      // Extract events from the JSON
       const events = data.features.map(event => {
         return {
           eventName: event.properties.name,
@@ -326,10 +330,72 @@ document.addEventListener('DOMContentLoaded', function() {
           date: event.properties.date
         };
       });
-      new Calendar('#calendar', events);
+
+      // Fetch plans from localStorage and send them to the calendar as events
+      const localStorageEvents = plans.map(plan => {
+        return {
+          eventName: plan.title,  // Use the title from the plan
+          calendar: 'Personal Plan',  // Category for personal plans
+          color: 'blue',  // Use a different color for localStorage events
+          date: plan.visitDate  // Use the visitDate from the plan
+        };
+      });
+
+      // Combine JSON events and localStorage plans
+      const combinedEvents = events.concat(localStorageEvents);
+
+      // Initialize the calendar with both sets of events
+      new Calendar('#calendar', combinedEvents);
     })
     .catch(error => console.error('Error loading events:', error));
+
+  // Plans management section
+  const plansList = document.getElementById("plans-list");
+
+  if (plans.length === 0) {
+    plansList.innerHTML = "<p>No plans saved yet.</p>";
+  } else {
+    plans.forEach((plan, index) => {
+      const planElement = document.createElement("div");
+      planElement.classList.add("plan-card"); // Add a class for card styling
+      planElement.innerHTML = `
+        <h2>${plan.title}</h2>
+        <p><strong>Location:</strong> ${plan.location}</p>
+        <p><strong>Date of Visit:</strong> ${plan.visitDate}</p>
+        <h3>Attractions:</h3>
+        <div class="attractions">
+            ${plan.attractions.map(attraction => `
+                <div class="attraction">
+                    <p><strong>${attraction.time} ${attraction.name}</strong></p>
+                </div>
+            `).join('')}
+        </div>
+        <button class="delete-btn" data-index="${index}">Delete Plan</button>
+      `;
+
+      // Add delete functionality
+      planElement.querySelector('.delete-btn').addEventListener('click', (event) => {
+        const indexToDelete = event.target.getAttribute('data-index');
+        deletePlan(indexToDelete);
+      });
+
+      plansList.appendChild(planElement);
+    });
+  }
+
+  function deletePlan(index) {
+    let plans = JSON.parse(localStorage.getItem("plans")) || [];
+    plans.splice(index, 1); // Remove the plan at the specified index
+    localStorage.setItem("plans", JSON.stringify(plans)); // Save the updated plans list to local storage
+    location.reload(); // Reload the page to reflect changes
+  }
+
+  // Event listener for returning to plans page
+  document.getElementById('return').addEventListener('click', function () {
+    window.location.href = 'plans.html';
+  });
 });
+
 
 
   document.addEventListener('DOMContentLoaded', () => {
@@ -366,4 +432,44 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('cancel').addEventListener('click',()=>{
       document.getElementById('planner-container').style.display = 'none';
     });
+
+    document.getElementById("visit-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+  
+      // Capture form data
+      const title = document.getElementById("title").value;
+      const location = document.getElementById("location").value;
+      const visitDate = document.getElementById("visit-date").value;
+      const time = document.querySelectorAll(".time");
+      const attractionNames = document.querySelectorAll(".attraction-name");
+  
+      const attractions = [];
+      time.forEach((timeInput, index) => {
+          attractions.push({ 
+              time: timeInput.value,
+              name: attractionNames[index].value
+          });
+      });
+  
+      // Create the plan object
+      const plan = {
+          title,
+          location,
+          visitDate,
+          attractions
+      };
+  
+      // Save the plan to local storage
+      let plans = JSON.parse(localStorage.getItem("plans")) || [];
+      plans.push(plan);
+      localStorage.setItem("plans", JSON.stringify(plans));
+  
+      
+  });
+  
+
+  document.getElementById('view').addEventListener('click', function() {
+    window.location.href = 'plan-list.html';
+});
+
 });

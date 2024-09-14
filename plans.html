@@ -26,8 +26,9 @@
         </nav>
         <h1>My Plans</h1>
     </header>
-    <main>
+    <main id="main">
         <div class="plan">
+            <button class="view" id="view">All Plans</button>
             <div id="calendar" class="calendar"></div>
         </div>
         <div class="planner-container" id="planner-container">
@@ -35,16 +36,13 @@
                 <h2>Plan Your Visit</h2>
                 <form id="visit-form">
                     <label for="title">Title:</label>
-                    <input type="text" id="title" name="title" required>
+                    <input type="text" id="title" name="title" placeholder="Enter a title for the plan" required>
 
                     <label for="location">Location:</label>
                     <input type="text" id="location" name="location" required>
 
                     <label for="visit-date">Date of Visit:</label>
                     <input type="date" id="visit-date" name="visit-date" required>
-
-                    <label for="description">Description:</label>
-                    <textarea id="description" name="description" rows="4" required></textarea>
 
                     <div id="attractions-container">
                         <h3>Attractions</h3>
@@ -59,7 +57,7 @@
 
                     <button type="button" id="add-attraction">Add Another Attraction</button>
                     <div class="plans-btn">
-                        <button type="submit" id="submit">Submit</button>
+                        <button type="submit" id="save-plan">Save</button>
                         <button type="button" id="cancel">Cancel</button>
                     </div>
                 </form>
@@ -67,6 +65,7 @@
 
         </div>
     </main>
+
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
     <script src="plans.js"></script>
 </body>

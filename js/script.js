@@ -135,6 +135,14 @@ const showDetails = (name, description, img, address, contact, openingHours, lat
 
     map.setView([latitude, longitude], 15);
 
+     document.getElementById('back-btn').addEventListener('click', function () {
+            back();
+        });
+
+        document.getElementById('toggle-route-btn').addEventListener('click', function () {
+            toggleRouteVisibility();
+        });
+
     document.getElementById('routeButton').addEventListener('click', function () {
         displayRouteToDestination(latitude, longitude, name);
         document.getElementById('toggle-route-btn').style.display = 'block';

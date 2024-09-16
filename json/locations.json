@@ -1,0 +1,535 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    74.827150,
+                    12.849210
+                ]
+            },
+            "properties": {
+                "name": "Karavali Beach",
+                "category": "beaches",
+                "description": "A popular beach with beautiful sands and vibrant local culture.",
+                "img": "karavali_beach.png",
+                "address": "Karavali Beach Road, Mangalore, Karnataka, India",
+                "contact": "+91 123 456 7890",
+                "openingHours": "6:00 AM - 7:00 PM"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    74.848056,
+                    12.794444
+                ]
+            },
+            "properties": {
+                "name": "Someshwara Beach",
+                "category": "beaches",
+                "description": "Known for its serene environment and stunning sunset views.",
+                "img": "someshwara_beach.png",
+                "address": "Someshwara Beach, Mangalore, Karnataka, India",
+                "contact": "+91 234 567 8901",
+                "openingHours": "6:00 AM - 6:00 PM"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    74.804414,
+                    12.937083
+                ]
+            },
+            "properties": {
+                "name": "Panambur Beach",
+                "category": "beaches",
+                "description": "A bustling beach with many activities and lively local events.",
+                "img": "panambur_beach.png",
+                "address": "Panambur Beach Road, Mangalore, Karnataka, India",
+                "contact": "+91 345 678 9012",
+                "openingHours": "6:00 AM - 8:00 PM"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    74.814067,
+                    12.8913559
+                ]
+            },
+            "properties": {
+                "name": "Tannirbhavi Beach",
+                "category": "beaches",
+                "description": "A quieter beach ideal for relaxation and unwinding away from the crowds.",
+                "img": "tannirbhavi_beach.png",
+                "address": "Tannirbhavi, Mangalore, Karnataka, India",
+                "contact": "+91 456 789 0123",
+                "openingHours": "6:00 AM - 6:30 PM"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    74.697995,
+                    13.361821
+                ]
+            },
+            "properties": {
+                "name": "Malpe Beach",
+                "category": "beaches",
+                "description": "Famous for its picturesque views and water sports activities.",
+                "img": "malpe_beach.png",
+                "address": "Malpe Beach, Udupi, Karnataka, India",
+                "contact": "+91 567 890 1234",
+                "openingHours": "6:00 AM - 7:00 PM"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    74.738237,
+                    13.222325
+                ]
+            },
+            "properties": {
+                "name": "Kaup Beach",
+                "category": "beaches",
+                "description": "A scenic beach with a historic lighthouse and panoramic views.",
+                "img": "kaup_beach.png",
+                "address": "Kaup Beach, Udupi, Karnataka, India",
+                "contact": "+91 678 901 2345",
+                "openingHours": "6:00 AM - 6:00 PM"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    74.4914,
+                    14.0947
+                ]
+            },
+            "properties": {
+                "name": "Murudeshwara",
+                "category": "historical",
+                "description": "Famous for its towering statue of Lord Shiva and a beautiful temple complex.",
+                "img": "murudeshwara.png",
+                "address": "Murudeshwara, Bhatkal, Karnataka, India",
+                "contact": "+91 789 012 3456",
+                "openingHours": "6:00 AM - 8:00 PM"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    74.8414,
+                    12.8696
+                ]
+            },
+            "properties": {
+                "name": "St. Aloysius Chapel",
+                "category": "historical",
+                "description": "Known for its beautiful murals and intricate artwork.",
+                "img": "st_aloysius_chapel.png",
+                "address": "St. Aloysius College Campus, Mangalore, Karnataka, India",
+                "contact": "+91 901 234 5678",
+                "openingHours": "7:00 AM - 7:00 PM"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    74.8554969,
+                    12.8857549
+                ]
+            },
+            "properties": {
+                "name": "Kadri Manjunath Temple",
+                "category": "historical",
+                "description": "An ancient temple renowned for its architectural beauty and religious significance.",
+                "img": "kadri_manjunath_temple.png",
+                "address": "Kadri, Mangalore, Karnataka, India",
+                "contact": "+91 012 345 6789",
+                "openingHours": "6:00 AM - 8:00 PM"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    74.89559,
+                    12.931365
+                ]
+            },
+            "properties": {
+                "name": "Pilikula Biological Park",
+                "category": "zoos",
+                "description": "A wildlife park and nature reserve with diverse flora and fauna.",
+                "img": "pilikula_zoo.png",
+                "address": "Pilikula, Mangalore, Karnataka, India",
+                "contact": "+91 123 456 7890",
+                "openingHours": "9:00 AM - 5:00 PM"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    75.0588,
+                    14.2359
+                ]
+            },
+            "properties": {
+                "name": "Jog Falls",
+                "category": "falls",
+                "description": "One of the highest waterfalls in India, a majestic natural wonder.",
+                "img": "jog_falls.png",
+                "address": "Shimoga, Karnataka, India",
+                "contact": "+91 987 654 3210",
+                "openingHours": "6:00 AM - 6:00 PM"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    74.9807,
+                    13.2107
+                ]
+            },
+            "properties": {
+                "name": "Anekere Lake",
+                "category": "lakes",
+                "description": "A scenic lake in Karkala, ideal for birdwatching and peaceful outings.",
+                "img": "anekere_lake.png",
+                "address": "Karkala, Karnataka, India",
+                "contact": "+91 555 777 9999",
+                "openingHours": "Always Open"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [74.7040, 13.5221]
+            },
+            "properties": {
+                "name": "Dr. Shivarama Karanth Theme Park",
+                "category": "parks",
+                "description": "A biological park named after Dr. Shivarama Karanth, focused on wildlife conservation.",
+                "img": "shivarama_karanth_park.png",
+                "address": "Kota, Udupi, Karnataka, India",
+                "contact": "+91 888 999 0000",
+                "openingHours": "9:00 AM - 5:00 PM"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    74.5856,
+                    14.7348
+                ]
+            },
+            "properties": {
+                "name": "Attiveri Bird Sanctuary",
+                "category": "zoos",
+                "description": "A bird sanctuary with a wide variety of bird species, serving as a natural zoo.",
+                "img": "attiveri_bird_sanctuary.png",
+                "address": "Uttara Kannada, Karnataka, India",
+                "contact": "+91 777 888 9999",
+                "openingHours": "6:00 AM - 6:00 PM"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    75.0833,
+                    13.5092
+                ]
+            },
+            "properties": {
+                "name": "Agumbe",
+                "category": "mountains",
+                "description": "Known for its sunset view and biodiversity hotspot in the Western Ghats.",
+                "img": "agumbe_mountain.png",
+                "address": "Agumbe, Shimoga, Karnataka, India",
+                "contact": "+91 333 444 5555",
+                "openingHours": "Always Open"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    74.8743,
+                    13.8566
+                ]
+            },
+            "properties": {
+                "name": "Kodachadri",
+                "category": "mountains",
+                "description": "A popular trekking destination in the Western Ghats with scenic views.",
+                "img": "kodachadri_mountain.png",
+                "address": "Kodachadri, Shimoga, Karnataka, India",
+                "contact": "+91 444 555 6666",
+                "openingHours": "Always Open"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    75.1038,
+                    13.5044
+                ]
+            },
+            "properties": {
+                "name": "Narasimha Parvatha",
+                "category": "mountains",
+                "description": "A lesser-known trekking peak near Agumbe, offering pristine landscapes.",
+                "img": "narasimha_parvatha.png",
+                "address": "Agumbe, Shimoga, Karnataka, India",
+                "contact": "+91 555 666 7777",
+                "openingHours": "Always Open"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    75.2186,
+                    13.4673
+                ]
+            },
+            "properties": {
+                "name": "Kudremukh Peak",
+                "category": "mountains",
+                "description": "A beautiful peak resembling a horse's face, perfect for trekking.",
+                "img": "kudremukh_peak.png",
+                "address": "Kudremukh, Karnataka, India",
+                "contact": "+91 111 222 3333",
+                "openingHours": "Always Open"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    75.4365,
+                    13.3794
+                ]
+            },
+            "properties": {
+                "name": "Sirimane Falls",
+                "category": "falls",
+                "description": "A scenic waterfall in the Western Ghats near Sringeri.",
+                "img": "sirimane_falls.png",
+                "address": "Sringeri, Karnataka, India",
+                "contact": "+91 123 456 1234",
+                "openingHours": "7:00 AM - 6:00 PM"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    75.1570,
+                    13.2094
+                ]
+            },
+            "properties": {
+                "name": "Hanuman Gundi Falls",
+                "category": "falls",
+                "description": "Nestled in the Kudremukh region, known for its lush surroundings.",
+                "img": "hanuman_gundi_falls.png",
+                "address": "Kudremukh, Karnataka, India",
+                "contact": "+91 444 555 6666",
+                "openingHours": "9:00 AM - 4:00 PM"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    74.8253,
+                    12.8815
+                ]
+            },
+            "properties": {
+                "name": "Pilikula Lake",
+                "category": "lakes",
+                "description": "A serene lake offering boating and surrounded by rich biodiversity.",
+                "img": "pilikula_lake.png",
+                "address": "Pilikula, Mangalore, Karnataka, India",
+                "contact": "+91 789 456 1230",
+                "openingHours": "9:00 AM - 5:00 PM"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    75.1075,
+                    12.9985
+                ]
+            },
+            "properties": {
+                "name": "Pilikula Heritage Village",
+                "category": "museums",
+                "description": "Showcasing the traditional lifestyle and cultural heritage of the region.",
+                "img": "pilikula_heritage.png",
+                "address": "Pilikula, Mangalore, Karnataka, India",
+                "contact": "+91 222 333 4444",
+                "openingHours": "9:00 AM - 6:00 PM"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    74.8353,
+                    12.8743
+                ]
+            },
+            "properties": {
+                "name": "Guthu House Museum",
+                "category": "museums",
+                "description": "A traditional coastal mansion displaying cultural history.",
+                "img": "guthu_house.png",
+                "address": "Pilikula, Mangalore, Karnataka, India",
+                "contact": "+91 123 456 7890",
+                "openingHours": "9:00 AM - 5:00 PM"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    74.8127,
+                    12.9055
+                ]
+            },
+            "properties": {
+                "name": "Kadri Park",
+                "category": "parks",
+                "description": "A popular park in Mangalore, perfect for relaxation and family outings.",
+                "img": "kadri_park.png",
+                "address": "Mangalore, Karnataka, India",
+                "contact": "+91 654 789 3210",
+                "openingHours": "6:00 AM - 7:00 PM"
+            }
+        },
+        
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    74.845585,
+                    12.849162
+                ]
+            },
+            "properties": {
+                "name": "Mangaladevi Temple",
+                "category": "historical",
+                "description": "An ancient temple known for its historical importance and spiritual ambiance.",
+                "img": "mangaladevi_temple.png",
+                "address": "Mangaladevi Temple Road, Mangalore, Karnataka, India",
+                "contact": "+91 234 567 8901",
+                "openingHours": "6:00 AM - 8:00 PM"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    74.8314,
+                    12.8759
+                ]
+            },
+            "properties": {
+                "name": "Kudroli Gokarnath Temple",
+                "category": "historical",
+                "description": "A prominent temple in Mangalore known for its vibrant festivals and cultural activities.",
+                "img": "kudroli_gokarnath_temple.png",
+                "address": "Kudroli, Mangalore, Karnataka, India",
+                "contact": "+91 345 678 9012",
+                "openingHours": "6:00 AM - 8:00 PM"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    74.7519958,
+                    13.3411861
+                ]
+            },
+            "properties": {
+                "name": "Udupi Sri Krishna Temple",
+                "category": "historical",
+                "description": "A famous temple in Udupi, known for its Krishna idol and traditional cuisine.",
+                "img": "udupi_sri_krishna_temple.png",
+                "address": "Udupi, Karnataka, India",
+                "contact": "+91 456 789 0123",
+                "openingHours": "5:00 AM - 9:00 PM"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    74.817188,
+                    13.272396
+                ]
+            },
+            "properties": {
+                "name": "Gokarna Beach",
+                "category": "beaches",
+                "description": "A serene beach ideal for yoga and meditation with a scenic backdrop.",
+                "img": "gokarna_beach.png",
+                "address": "Gokarna, Karnataka, India",
+                "contact": "+91 567 890 1234",
+                "openingHours": "6:00 AM - 6:00 PM"
+            }
+        }
+    ]
+}
